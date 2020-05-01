@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Spring and Struts 2 Integration</title>
+<title>Notas</title>
 </head>
 <body>
 
