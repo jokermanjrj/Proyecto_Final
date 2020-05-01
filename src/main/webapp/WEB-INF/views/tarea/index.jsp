@@ -6,10 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Notas</title>
+
 </head>
 <body>
 
 	<h3>tareas List</h3>
+	<s:a namespace="/tarea" action="calendar"> Calendario</s:a>
 	<s:a namespace="/tarea" action="add"> Añadir Tarea</s:a>
 	<table border="1">
 		<tr>

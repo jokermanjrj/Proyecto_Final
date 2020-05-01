@@ -89,6 +89,16 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		this.tareas = tareas;
 	}
 
+	//ACCION QUE TE ENVIA AL CALENDARIO
+	
+
+	@Action(value = "calendar", results = {
+		@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/calendar.jsp")
+	})
+	public String calendar() {
+		return SUCCESS;
+	}
+	
 	@Action(value = "index", results = {
 		@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp")
 	})
@@ -96,6 +106,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		this.tareas = this.tareaService.findAll();
 		return SUCCESS;
 	}
+	
 	
 	@Action(value = "add", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/add.jsp")
