@@ -21,7 +21,18 @@ public class CalendarioAction extends ActionSupport{
 		public String calendar() {
 			this.calendario = new Calendario();
 			this.calendario.getMeses();
+			System.out.println(calendario.getMeses());
 			return SUCCESS;
 		}
+
+		public Calendario getCalendario() {
+			return calendario;
+		}
+
+		public void setCalendario(Calendario calendario) {
+			this.calendario = calendario;
+		}
+		
+		
 		
 }
