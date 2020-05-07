@@ -13,6 +13,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.proyecto.entities.Calendario;
 import com.proyecto.entities.Tarea;
 import com.proyecto.services.TareaService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -32,6 +33,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
     private HttpServletRequest servletRequest;
 
+    private Calendario calendario;
 
 	@Autowired
 	private TareaService tareaService;
@@ -87,15 +89,28 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
 	public void setTareas(List<Tarea> tareas) {
 		this.tareas = tareas;
+		
+	}
+	
+	public Calendario getCalendario() {
+		return calendario;
+	}
+
+	public void setCalendario(Calendario calendario) {
+		this.calendario = calendario;
 	}
 
 	//ACCION QUE TE ENVIA AL CALENDARIO
 	@Action(value = "calendar", results = {
-		@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/calendar.jsp")
-	})
-	public String calendar() {
-		return SUCCESS;
-	}
+			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/calendar.jsp")
+		})
+		public String calendar() {
+			this.calendario = new Calendario();
+			this.calendario.getMeses();
+			//System.out.println(calendario.getMeses());
+			this.tareas = this.tareaService.findAll();
+			return SUCCESS;
+		}
 	
 	
 	
