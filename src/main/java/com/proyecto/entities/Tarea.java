@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,8 +23,9 @@ public class Tarea implements Serializable{
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column
-	private int id_usuario;
+	@ManyToOne
+    @JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 	@Column
 	private String titulo;
 	@Column
@@ -40,10 +43,10 @@ public class Tarea implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
+	public Tarea(int id, Usuario usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
 		super();
 		this.id = id;
-		this.id_usuario = id_usuario;
+		this.usuario = usuario;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
@@ -57,13 +60,13 @@ public class Tarea implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public int getId_usuario() {
-		return id_usuario;
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getTitulo() {
