@@ -49,10 +49,10 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Usuario identificarse(String username, String password) {
+	public List<Usuario> identificarse(String correo, String pasword) {
 		// TODO Auto-generated method stub
 		try {
-			return (Usuario) entityManager.createQuery("from Usuario where username = :username and password = :password").setParameter("username", username).setParameter("password", password).getSingleResult();
+			return (List<Usuario>) entityManager.createQuery("from Usuario where correo = :correo and pasword = :pasword").setParameter("correo", correo).setParameter("pasword", pasword).getResultList();
 			
 		}catch(Exception e){
 			return null;

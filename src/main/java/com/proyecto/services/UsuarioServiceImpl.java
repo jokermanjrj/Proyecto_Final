@@ -2,6 +2,7 @@ package com.proyecto.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.proyecto.entities.Usuario;
@@ -10,6 +11,7 @@ import com.proyecto.repositories.UsuarioRepository;
 @Transactional
 public class UsuarioServiceImpl implements UsuarioService{
 	
+	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
 	
@@ -28,9 +30,9 @@ public class UsuarioServiceImpl implements UsuarioService{
 		return this.usuarioRepository.find(id);
 	}
 
-	public Usuario identificarse(String username, String password) {
+	public List<Usuario> identificarse(String correo, String pasword) {
 		// TODO Auto-generated method stub
-		return this.usuarioRepository.identificarse(username, password);
+		return this.usuarioRepository.identificarse(correo, pasword);
 	}
 
 	public void create(Usuario usuario) {

@@ -11,7 +11,7 @@
     <!--  <link href="./css/main.css" rel="stylesheet" type="text/css" />-->
 </head>
 <body>
-	<h1>PRUEBA DE CALENDARIO</h1>
+	<h1>CALENDARIO</h1>
 	<s:a namespace="/tarea" action="add"> Añadir Tarea</s:a>
 	
 

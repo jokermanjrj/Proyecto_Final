@@ -127,6 +127,16 @@ public class AppConfig extends WebSecurityConfigurerAdapter{
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+	@Bean(name="usuarioRepository")
+	public UsuarioRepository usuarioRepository() {
+		return new UsuarioRepositoryImpl();
+	}
+	
+	@Bean(name="usuarioService")
+	public UsuarioService usuarioService() {
+		return new UsuarioServiceImpl(usuarioRepository());
+	}
 
 	@Bean(name = "tareaRepository")
 	public TareaRepository tareaRepository() {
@@ -138,14 +148,6 @@ public class AppConfig extends WebSecurityConfigurerAdapter{
 		return new TareaServiceImpl(tareaRepository());
 	}
 	
-	@Bean(name="usuarioRepository")
-	public UsuarioRepository usuarioRepository() {
-		return new UsuarioRepositoryImpl();
-	}
 	
-	@Bean(name="usuarioService")
-	public UsuarioService usuarioService() {
-		return new UsuarioServiceImpl(usuarioRepository());
-	}
 
 }

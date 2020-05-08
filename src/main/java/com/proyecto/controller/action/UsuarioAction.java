@@ -15,24 +15,40 @@ import com.proyecto.services.UsuarioService;
 
 @Namespace("/usuario")
 public class UsuarioAction extends ActionSupport{
-
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+
 	@Autowired
 	private UsuarioService usuarioService;
 	
+
 	private String errorMessage = "";
-	private String username;
-	private String password;
+	private String correo;
+	private String pasword;
 	private Usuario usuario;
+	private int id;
 	private List<Usuario> usuarios;
-	public UsuarioService getUsuarioService() {
-		return usuarioService;
+	
+	
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -44,34 +60,53 @@ public class UsuarioAction extends ActionSupport{
 	}
 
 
-	public String getUsername() {
-		return username;
+	public String getCorreo() {
+		return correo;
 	}
-	public String getPassword() {
-		return password;
+	public String getPasword() {
+		return pasword;
 	}
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
-	public void setUsuarioService(UsuarioService usuarioService) {
-		this.usuarioService = usuarioService;
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPasword(String pasword) {
+		this.pasword = pasword;
 	}
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
 	
-	@Action(value = "edit", results = {
-			@Result(name = SUCCESS, location = "/WEB-INF/views/cuenta/welcome.jsp")
+	@Action(value = "index", results = {
+			@Result(name = SUCCESS, location = "/WEB-INF/views/usuario/index.jsp")
 		})
-		public String edit() {
-			this.usuario = this.usuarioService.identificarse(username, password);
+		public String index() {
+		this.usuarios = this.usuarioService.findAll();
 			return SUCCESS;
+		}
+	
+	@Action(value = "identificarse", results = {
+			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp"),
+			@Result(name = ERROR, location = "/WEB-INF/views/usuario/index.jsp")
+		})
+		public String identificarse() {
+			this.usuarios = this.usuarioService.identificarse(correo, pasword);
+			System.out.println(this.usuarios.size());
+			
+			if(this.usuarios.size() == 1) {
+				this.usuario =this.usuarios.get(0);
+				Map<String, Object> session = ActionContext.getContext().getSession();
+				session.put("id", this.usuario.getId());
+				return SUCCESS;
+			}else {
+				this.errorMessage = "Invalid Account";
+				
+				return ERROR;
+			}
+			
 		}
 
 }

@@ -10,7 +10,7 @@ public interface UsuarioService {
 
 	public Usuario find(int id);
 
-	public Usuario identificarse(String username, String password);
+	public List<Usuario> identificarse(String correo, String pasword);
 
 	public void create(Usuario usuario);
 
