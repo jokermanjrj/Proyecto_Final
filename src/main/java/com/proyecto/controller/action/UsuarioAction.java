@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.proyecto.entities.Tarea;
 import com.proyecto.entities.Usuario;
 import com.proyecto.services.UsuarioService;
 
@@ -107,6 +108,23 @@ public class UsuarioAction extends ActionSupport{
 				return ERROR;
 			}
 			
+		}
+	
+	@Action(value = "register", results = {
+			@Result(name = SUCCESS, location = "/WEB-INF/views/usuario/registrar.jsp")
+		})
+		public String register() {
+			this.usuario = new Usuario ();
+			return SUCCESS;
+		}
+	
+	@Action(value = "save", results = {
+			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/usuario",  "actionName",  "index"})
+		})
+		public String save() throws Exception {
+		
+		this.usuarioService.create(usuario);
+			return SUCCESS;
 		}
 
 }

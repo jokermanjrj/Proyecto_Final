@@ -16,6 +16,8 @@
 		<s:password label="Contraseña" name="pasword"></s:password>
 		<s:submit value="Identificarse" align="left"></s:submit>
 	</s:form>
+	
+	<s:a namespace="/usuario" action="register">¿Quiéres registrarte?</s:a>
 	<table border="1">
 		<tr>
 			<th>Id</th>
