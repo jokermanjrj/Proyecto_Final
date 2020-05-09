@@ -27,7 +27,7 @@
 							<s:param name="id">${tarea.id }</s:param>
 					</s:url>
 						
-						<s:a href="%{url_edit}" >${tarea.id } ${tarea.id_usuario } ${tarea.titulo } ${tarea.descripcion } ${tarea.fecha } ${tarea.audio }</s:a> | 
+						<s:a href="%{url_edit}" >${tarea.id } ${tarea.titulo } ${tarea.descripcion } ${tarea.fecha } ${tarea.audio }</s:a> | 
 						
 					<s:url var="url_delete" namespace="/tarea" action="delete"> 
 						<s:param name="id">${tarea.id }</s:param>
