@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-color: red;">
 
 	<h3>Tareas Info</h3>
 		<s:form methof="post" namespace="/tarea" action="save">

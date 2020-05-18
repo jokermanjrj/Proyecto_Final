@@ -107,7 +107,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		public String calendar() {
 			this.calendario = new Calendario();
 			this.calendario.getMeses();
-			//System.out.println(calendario.getMeses());
+			System.out.println(calendario.getMeses());
 			this.tareas = this.tareaService.findAll();
 			return SUCCESS;
 		}

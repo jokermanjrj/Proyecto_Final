@@ -35,5 +35,12 @@ public class Dias {
 	public void setAño(int año) {
 		this.año = año;
 	}
+
+	@Override
+	public String toString() {
+		return dia + "-" + mes + "-" + año;
+	}
+	
+	
 	
 }

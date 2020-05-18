@@ -90,7 +90,7 @@ public class UsuarioAction extends ActionSupport{
 		}
 	
 	@Action(value = "identificarse", results = {
-			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp"),
+			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/calendar.jsp"),
 			@Result(name = ERROR, location = "/WEB-INF/views/usuario/index.jsp")
 		})
 		public String identificarse() {

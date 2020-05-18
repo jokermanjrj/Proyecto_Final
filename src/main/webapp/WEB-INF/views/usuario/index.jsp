@@ -18,6 +18,7 @@
 	</s:form>
 	
 	<s:a namespace="/usuario" action="register">¿Quiéres registrarte?</s:a>
+	<s:a namespace="/tarea" action="calendar">Calendario</s:a>
 	<table border="1">
 		<tr>
 			<th>Id</th>
