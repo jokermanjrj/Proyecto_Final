@@ -64,7 +64,7 @@ li a:hover:not(.active) {
 			  <li><a href="#news">News</a></li>
 			  <li><a href="#contact">Contact</a></li>
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
-			  <li style="float:right"><s:a namespace="/user" action="exit"></s:a></li>
+			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
 	
