@@ -60,7 +60,7 @@ li a:hover:not(.active) {
 		<div style="background-color:grey; margin:0px; padding: 20px;">
 		<h1 style="text-align:center;">EDITAR TAREA</h1>
 			<ul>
-			  <li><s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a></li>
+			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
 			  <li><a href="#news">News</a></li>
 			  <li><a href="#contact">Contact</a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
@@ -72,9 +72,9 @@ li a:hover:not(.active) {
 	<div id="global" style="display: flex; flex-wrap: wrap;"> 	
 	 	<c:forEach var="dias" items="${calendario.getDias()}">
 	 	<div  id="mensaje" style="background-color: grey; margin: 10px; padding: 5px; min-width: 100%;">
-		 	<p>${dias.dia}/${dias.mes}/${dias.aï¿½o}</p>
+		 	<p>${dias.dia}/${dias.mes}/${dias.año}</p>
 		 	
-		 	<c:set var="dia" value="${dias.aï¿½o}-${dias.mes}-${dias.dia}" />
+		 	<c:set var="dia" value="${dias.año}-${dias.mes}-${dias.dia}" />
 		    
 		    <c:forEach var="tarea" items="${tareas }">
 				    <!--<p>${dia}</p>

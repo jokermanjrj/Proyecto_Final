@@ -1,6 +1,7 @@
 package com.proyecto.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -86,8 +87,15 @@ public class Tarea implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public String getFecha() {
+		String pattern = "yyyy-M-d";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+		String date = simpleDateFormat.format(fecha);
+		System.out.println(date);
+		
+		return date;
+	
 	}
 
 	public void setFecha(Date fecha) {
