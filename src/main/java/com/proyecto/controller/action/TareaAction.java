@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.proyecto.entities.Calendario;
 import com.proyecto.entities.Tarea;
+import com.proyecto.entities.Usuario;
 import com.proyecto.services.TareaService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -40,6 +41,9 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
 	private List<Tarea> tareas;
 	private Tarea tarea;
+	private Usuario usuario;
+	
+
 	private int id;
 	
 	
@@ -66,7 +70,13 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
     public void setFileUpload(File fileUpload) {
         this.fileUpload = fileUpload;
     }*/
-    
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public int getId() {
 		return id;
 	}
@@ -107,7 +117,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		public String calendar() {
 			this.calendario = new Calendario();
 			this.calendario.getMeses();
-			System.out.println(calendario.getMeses());
+			//System.out.println(calendario.getMeses());
 			this.tareas = this.tareaService.findAll();
 			return SUCCESS;
 		}
@@ -129,6 +139,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		})
 		public String add() {
 			this.tarea = new Tarea ();
+			this.usuario = new Usuario();
+			this.usuario.setId(1);
 			return SUCCESS;
 		}
 	

@@ -1,8 +1,6 @@
 package com.proyecto.entities;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -54,7 +52,8 @@ public class Tarea implements Serializable{
 		this.fecha = fecha;
 		this.audio = audio;
 	}
-
+	//GETTERS Y SETTERS
+	
 	public int getId() {
 		return id;
 	}
@@ -87,14 +86,8 @@ public class Tarea implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public String getFecha() {
-		String pattern = "yyyy-M-d";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-
-		String date = simpleDateFormat.format(fecha);
-		System.out.println(date);
-		
-		return date;
+	public Date getFecha() {
+		return fecha;
 	}
 
 	public void setFecha(Date fecha) {
