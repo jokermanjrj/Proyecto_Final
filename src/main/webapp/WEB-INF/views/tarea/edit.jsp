@@ -10,15 +10,17 @@
 <body>
 
 	<h3>Tarea Info</h3>
+	<s:set var="usuario">${sessionScope.id }</s:set>
 	<s:form methof="post" namespace="/tarea" action="update">
-		<s:textfield label="id_usuario" name="tarea.usuario"></s:textfield>
+	
 		<s:textfield label="Titulo" name="tarea.titulo"></s:textfield>
-		<s:textfield label="nota" name="tarea.nota"></s:textfield>
-		<s:textfield label="fechaInicio" name="tarea.fechaInicio"></s:textfield>
-		<s:textfield label="FEchaFinal" name="tarea.fechaFinal"></s:textfield>
+		<s:textfield label="nota" name="tarea.descripcion"></s:textfield>
+		<s:textfield label="fecha" name="tarea.fecha"></s:textfield>
 	
 		<s:submit value="Save" align="left"></s:submit>
+		<s:hidden name="tarea.id_usuario" value="%{#usuario}"></s:hidden>
 		<s:hidden name="tarea.id"></s:hidden>
+		
 	</s:form>
 
 </body>

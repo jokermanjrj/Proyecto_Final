@@ -25,7 +25,7 @@
 		<c:forEach var="tarea" items="${tareas }">
 			<tr>
 				<td>${tarea.id }</td>
-				<td>${tarea.usuario }</td>
+				<td>${tarea.id_usuario }</td>
 				<td>${tarea.titulo }</td>
 				<td>${tarea.descripcion }</td>
 				<td>${tarea.fecha }</td>

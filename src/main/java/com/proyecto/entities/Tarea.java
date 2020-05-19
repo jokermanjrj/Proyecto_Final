@@ -24,9 +24,8 @@ public class Tarea implements Serializable{
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne
-    @JoinColumn(name = "id_usuario")
-	private Usuario usuario;
+	@Column
+	private int id_usuario;
 	@Column
 	private String titulo;
 	@Column
@@ -44,10 +43,10 @@ public class Tarea implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, Usuario usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
+	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
 		super();
 		this.id = id;
-		this.usuario = usuario;
+		this.id_usuario = id_usuario;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
@@ -63,12 +62,13 @@ public class Tarea implements Serializable{
 		this.id = id;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+
+	public int getId_usuario() {
+		return id_usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
 	public String getTitulo() {

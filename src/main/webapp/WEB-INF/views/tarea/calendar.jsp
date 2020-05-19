@@ -60,7 +60,10 @@ li a:hover:not(.active) {
 		<div style="background-color:grey; margin:0px; padding: 20px;">
 		<h1 style="text-align:center;">EDITAR TAREA</h1>
 			<ul>
-			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
+			<s:url var="url_add" namespace="/tarea" action="add"> 
+						<s:param name="id_usuario">${sessionScope.id }</s:param>
+					</s:url>
+			  <li><s:a href="%{url_add}"> Añadir Tarea</s:a></li>
 			  <li><a href="#news">News</a></li>
 			  <li><a href="#contact">Contact</a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->

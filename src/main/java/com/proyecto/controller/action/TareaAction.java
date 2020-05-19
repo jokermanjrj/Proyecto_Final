@@ -41,9 +41,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
 	private List<Tarea> tareas;
 	private Tarea tarea;
-	private Usuario usuario;
 	
-
+	private int id_usuario;
 	private int id;
 	
 	
@@ -70,15 +69,17 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
     public void setFileUpload(File fileUpload) {
         this.fileUpload = fileUpload;
     }*/
-	public Usuario getUsuario() {
-		return usuario;
-	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 	public int getId() {
 		return id;
+	}
+
+	public int getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
 	public void setId(int id) {
@@ -139,13 +140,12 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		})
 		public String add() {
 			this.tarea = new Tarea ();
-			this.usuario = new Usuario();
-			this.usuario.setId(1);
 			return SUCCESS;
 		}
 	
 	@Action(value = "save", results = {
-			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
+			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
+			@Result(name = INPUT, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
 		})
 		public String save() throws Exception {
 		
@@ -174,7 +174,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		}
 	
 	@Action(value = "update", results = {
-			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
+			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
+			@Result(name=INPUT, location = "/WEB-INF/views/tarea/index.jsp")
 		})
 		public String update() {
 		this.tareaService.update(this.tarea);
