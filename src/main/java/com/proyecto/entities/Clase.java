@@ -36,7 +36,7 @@ public class Clase {
 		this.nombre_clase = nombre_clase;
 	}
 
-	@JoinTable(name = "imparte", joinColumns = @JoinColumn(name = "id_clase"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	/*@JoinTable(name = "imparte", joinColumns = @JoinColumn(name = "id_clase"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
 	@ManyToMany
 	private List<Usuario> usuarios;
 
@@ -75,7 +75,7 @@ public class Clase {
 
 	public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
-	}
+	}*/
 
 	public int getIdClase() {
 		return idClase;

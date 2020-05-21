@@ -24,9 +24,9 @@ public class ClaseServiceImpl implements ClaseService{
 		return this.claseRepository.findAll();
 	}
 
-	public Clase find(int id) {
+	public Clase find(int idClase) {
 		// TODO Auto-generated method stub
-		return this.claseRepository.find(id);
+		return this.claseRepository.find(idClase);
 	}
 
 	public void create(Clase clase) {

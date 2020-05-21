@@ -23,10 +23,10 @@ public class ClaseRepositoryImpl implements ClaseRepository{
 		}
 	}
 
-	public Clase find(int id) {
+	public Clase find(int idClase) {
 		// TODO Auto-generated method stub
 		try {
-			return (Clase) entityManager.createQuery("from Clase where idClase = :id").setParameter("id", id).getSingleResult();
+			return (Clase) entityManager.createQuery("from Clase where idClase = :idClase").setParameter("idClase", idClase).getSingleResult();
 		}catch(Exception e) {
 			return null;
 		}

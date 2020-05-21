@@ -13,6 +13,8 @@
 	<h3>tareas List</h3>
 	<s:a namespace="/tarea" action="calendar"> Calendario</s:a>
 	<s:a namespace="/tarea" action="add"> Añadir Tarea</s:a>
+	<s:a namespace="/clase" action="listar">Clases</s:a>
+	<s:a namespace="/alumno" action="listar">Alumnos</s:a>
 	<table border="1">
 		<tr>
 			<th>Id</th>
@@ -31,8 +33,8 @@
 				<td>${tarea.fecha }</td>
 				<td>${tarea.audio }</td>
 				<td> 
-				<s:url var="url_edit" namespace="/tarea" action="edit"> 
-						<s:param name="id">${tarea.id }</s:param>
+					<s:url var="url_edit" namespace="/tarea" action="edit"> 
+							<s:param name="id">${tarea.id }</s:param>
 					</s:url>
 					<s:a href="%{url_edit}" >Editar</s:a> | 
 					<s:url var="url_delete" namespace="/tarea" action="delete"> 

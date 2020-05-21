@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "alumno")
 public class Alumno {
 	@Id
-	@Column(name = "id_alumno")
+	@Column(name = "idAlumno")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column
@@ -34,8 +34,8 @@ public class Alumno {
 		this.apellido_alumno = apellido_alumno;
 	}
 	
-	@ManyToMany(mappedBy = "alumnos")
-	private List<Clase> clases;
+	/*@ManyToMany(mappedBy = "alumnos")
+	private List<Clase> clases;*/
 	
 	//GETTERS Y SETTERS
 	

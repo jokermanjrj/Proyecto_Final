@@ -8,7 +8,7 @@ public interface ClaseRepository {
 
 	public List<Clase> findAll();
 
-	public Clase find(int id);
+	public Clase find(int idClase);
 
 	public void create(Clase clase);
 

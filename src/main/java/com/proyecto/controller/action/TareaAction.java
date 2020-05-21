@@ -125,7 +125,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	
 	
 	
-	
+	//LISTADO DE TODAS LAS TAREAS, SE EJECUTA NADA MÁS SE REDIRIGE AL INDEX.
 	@Action(value = "index", results = {
 		@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp")
 	})
@@ -134,7 +134,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		return SUCCESS;
 	}
 	
-	
+	//CREA UNA NUEVA TAREA
 	@Action(value = "add", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/add.jsp")
 		})
@@ -142,7 +142,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 			this.tarea = new Tarea ();
 			return SUCCESS;
 		}
-	
+	//GUARDA LA TAREA ANTES CREADA
 	@Action(value = "save", results = {
 			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
 			@Result(name = INPUT, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
@@ -156,7 +156,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
 	}
-	
+	//ELIMINA LA TAREA ACTUAL
 	@Action(value = "delete", results = {
 			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
 		})
@@ -164,7 +164,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		this.tareaService.delete(this.tareaService.find(id));
 			return SUCCESS;
 		}
-	
+	//ESTABLECE LA TAREA DE LA CLASE EL VALOR DE LA TAREA QUE HA SIDO BUSCADA.
 	@Action(value = "edit", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/edit.jsp")
 		})
@@ -172,7 +172,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 			this.tarea = this.tareaService.find(id);
 			return SUCCESS;
 		}
-	
+	//MODIFICA LA TAREA ANTES BUSCADA
 	@Action(value = "update", results = {
 			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
 			@Result(name=INPUT, location = "/WEB-INF/views/tarea/index.jsp")

@@ -26,10 +26,18 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import com.proyecto.repositories.AlumnoRepository;
+import com.proyecto.repositories.AlumnoRepositoryImpl;
+import com.proyecto.repositories.ClaseRepository;
+import com.proyecto.repositories.ClaseRepositoryImpl;
 import com.proyecto.repositories.TareaRepository;
 import com.proyecto.repositories.TareaRepositoryImpl;
 import com.proyecto.repositories.UsuarioRepository;
 import com.proyecto.repositories.UsuarioRepositoryImpl;
+import com.proyecto.services.AlumnoService;
+import com.proyecto.services.AlumnoServiceImpl;
+import com.proyecto.services.ClaseService;
+import com.proyecto.services.ClaseServiceImpl;
 import com.proyecto.services.TareaService;
 import com.proyecto.services.TareaServiceImpl;
 import com.proyecto.services.UsuarioService;
@@ -123,9 +131,26 @@ public class AppConfig extends WebSecurityConfigurerAdapter{
 			.withUser("employee").password(passwordEncoder().encode("123456")).authorities("ROLE_EMPLOYEE");
 	}*/
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+	
+	@Bean(name = "alumnoRepository")
+	public AlumnoRepository alumnoRepository() {
+		return new AlumnoRepositoryImpl();
+	}
+
+	@Bean(name = "alumnoService")
+	public AlumnoService alumnoService() {
+		return new AlumnoServiceImpl(alumnoRepository());
+	}
+	
+	
+	@Bean(name = "claseRepository")
+	public ClaseRepository claseRepository() {
+		return new ClaseRepositoryImpl();
+	}
+
+	@Bean(name = "claseService")
+	public ClaseService claseService() {
+		return new ClaseServiceImpl(claseRepository());
 	}
 	
 	@Bean(name="usuarioRepository")
