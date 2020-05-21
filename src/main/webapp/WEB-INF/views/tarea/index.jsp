@@ -17,6 +17,7 @@
 	<s:a namespace="/alumno" action="listar">Alumnos</s:a>
 	<s:a namespace="/tarea" action="index"> ver Tarea</s:a>
 	<table border="1">
+	<!--COMENTARIO DE FECHT -->
 		<tr>
 			<th>Id</th>
 			<th>Id_usuario</th>
