@@ -9,7 +9,7 @@
 <style>
 #global {
 	height: 800px;
-	width: 50%;
+	width: 70%;
 	border: 1px solid #ddd;
 	background: #f1f1f1;
 	overflow-y: scroll;
@@ -21,6 +21,7 @@
 	padding:4px;
 	background:#fff;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -64,8 +65,8 @@ li a:hover:not(.active) {
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 					</s:url>
 			  <li><s:a href="%{url_add}"> Añadir Tarea</s:a></li>
-			  <li><a href="#news">News</a></li>
-			  <li><a href="#contact">Contact</a></li>
+			  <li><a href="#news">Alumnos</a></li>
+
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
@@ -75,9 +76,13 @@ li a:hover:not(.active) {
 	<div id="global" style="display: flex; flex-wrap: wrap;"> 	
 	 	<c:forEach var="dias" items="${calendario.getDias()}">
 	 	<div  id="mensaje" style="background-color: grey; margin: 10px; padding: 5px; min-width: 100%;">
-		 	<p>${dias.dia}/${dias.mes}/${dias.año}</p>
 		 	
 		 	<c:set var="dia" value="${dias.año}-${dias.mes}-${dias.dia}" />
+
+		 	<p>${dias.dia+1}/${dias.mes+1}/${dias.año}</p>
+		 	
+		 	<c:set var="dia" value="${dias.año}-${dias.mes+1}-${dias.dia+1}" />
+
 		    
 		    <c:forEach var="tarea" items="${tareas }">
 				    <!--<p>${dia}</p>
