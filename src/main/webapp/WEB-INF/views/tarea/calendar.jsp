@@ -17,6 +17,15 @@
 #mensajes {
 	height: auto;
 }
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 10px;
+  width: 70%;
+}
+
 .texto {
 	padding:4px;
 	background:#fff;
@@ -37,7 +46,6 @@ li {
 li a {
   display: block;
   color: white;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -73,6 +81,7 @@ li a:hover:not(.active) {
 		</div>
 	
 	<!-- LISTA DE DIAS -->
+<div class="container">	
 	<div id="global" style="display: flex; flex-wrap: wrap;"> 	
 	 	<c:forEach var="dias" items="${calendario.getDias()}">
 	 	<div  id="mensaje" style="background-color: grey; margin: 10px; padding: 5px; min-width: 100%;">
@@ -92,8 +101,12 @@ li a:hover:not(.active) {
 					  <li><s:url var="url_edit" namespace="/tarea" action="edit"> 
 							<s:param name="id">${tarea.id }</s:param>
 							</s:url>						
-							<s:a href="%{url_edit}" >${tarea.id } ${tarea.titulo } ${tarea.descripcion } ${tarea.fecha } ${tarea.audio }</s:a> 
+							 
+							<s:a href="%{url_edit}" >Titulo : ${tarea.titulo }<br> Descripcion : ${tarea.descripcion }</s:a> 
+						
+							
 						</li>
+						
 						<li>
 						<s:url var="url_delete" namespace="/tarea" action="delete"> 
 							<s:param name="id">${tarea.id }</s:param>
@@ -108,6 +121,6 @@ li a:hover:not(.active) {
 	    </c:forEach> 
 		
     </div>
-    
+   </div>
 </body>
 </html>
