@@ -15,6 +15,7 @@
 	<s:a namespace="/tarea" action="add"> Añadir Tarea</s:a>
 	<s:a namespace="/clase" action="listar">Clases</s:a>
 	<s:a namespace="/alumno" action="listar">Alumnos</s:a>
+	<s:a namespace="/tarea" action="index"> ver Tarea</s:a>
 	<table border="1">
 		<tr>
 			<th>Id</th>
@@ -31,7 +32,8 @@
 				<td>${tarea.titulo }</td>
 				<td>${tarea.descripcion }</td>
 				<td>${tarea.fecha }</td>
-				<td>${tarea.audio }</td>
+				
+				<td><img src="${tarea.audio }" width="120" height="100"></td>
 				<td> 
 					<s:url var="url_edit" namespace="/tarea" action="edit"> 
 							<s:param name="id">${tarea.id }</s:param>

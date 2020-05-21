@@ -1,6 +1,8 @@
 package com.proyecto.controller.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.nio.file.Files;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,12 +30,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private File fileUpload;
-    //private String fileUploadContentType;
-    //private String fileUploadFileName;
-
-    private HttpServletRequest servletRequest;
-
+	
+    
     private Calendario calendario;
 
 	@Autowired
@@ -45,8 +43,14 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	private int id_usuario;
 	private int id;
 	
+	private File fileUpload;
+    private String fileUploadContentType;
+    private String fileUploadFileName;
+
+    private HttpServletRequest servletRequest;
 	
-	/*public String getFileUploadContentType() {
+	
+    public String getFileUploadContentType() {
         return fileUploadContentType;
     }
 
@@ -68,7 +72,9 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
     public void setFileUpload(File fileUpload) {
         this.fileUpload = fileUpload;
-    }*/
+    }
+	
+	
 
 	public int getId() {
 		return id;
@@ -146,9 +152,23 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	@Action(value = "save", results = {
 			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
 			@Result(name = INPUT, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
-		})
+		},interceptorRefs = {
+				@InterceptorRef(
+						params = {
+							"allowedTypes", "image/png,image/gif,image/jpeg,image/jpg",
+							"maximumSize", "2097152"
+			            },
+			            value = "fileUpload"
+			        ),
+					@InterceptorRef("defaultStack")
+				})
+	
 		public String save() throws Exception {
-		
+		// informacion d
+				System.out.println("File Name: " + this.fileUploadFileName);
+				System.out.println("File Size(bytes): " + this.fileUpload.length());
+				System.out.println("File Type: "+ this.fileUploadContentType);
+				this.tarea.setAudio(fileUpload);
 		this.tareaService.create(tarea);
 			return SUCCESS;
 		}

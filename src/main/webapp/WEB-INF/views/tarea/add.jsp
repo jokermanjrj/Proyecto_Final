@@ -109,11 +109,11 @@ input[type=submit]:hover {
 <div class="container">
 		<s:set var="usuario">${sessionScope.id }</s:set>
 		<s:property value="#usuario"/>
-	<s:form method="post" namespace="/tarea" action="save" style="width: 100%;">
+	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;">
 		<s:textfield label="Titulo" name="tarea.titulo" placeholder="Titulo"></s:textfield>
 		<s:textarea label="descripcion" name="tarea.descripcion" placeholder="Descripción"></s:textarea>
 		<s:textfield label="fecha" name="tarea.fecha" placeholder="Fecha"></s:textfield>
-		
+		<s:file label="Seleccione imagen" name="fileUpload"></s:file>
 		<s:submit value="Save" align="left"></s:submit>
 		<s:hidden name="tarea.id_usuario" value="%{#usuario}"></s:hidden>
 	</s:form>

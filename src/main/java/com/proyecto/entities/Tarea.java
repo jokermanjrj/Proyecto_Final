@@ -1,5 +1,6 @@
 package com.proyecto.entities;
 
+import java.io.File;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,14 +37,14 @@ public class Tarea implements Serializable{
 	
 	@Lob
 	@Column
-	private byte[] audio;
+	private File audio;
 
 	public Tarea() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
+	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, File audio) {
 		super();
 		this.id = id;
 		this.id_usuario = id_usuario;
@@ -104,20 +105,15 @@ public class Tarea implements Serializable{
 
 
 
-	public byte[] getAudio() {
+	public File getAudio() {
 
 		return audio;
 	}
 
-	public void setAudio(byte[] audio) {
-		this.audio = audio;
+	public void setAudio(File audio2) {
+		this.audio = audio2;
 	}
 
-	@Override
-	public String toString() {
-		String x = new String(audio);
-		return "Agenda [id=" + id + ", titulo=" + titulo + ", nota=" + descripcion + ", fechaInicio=" + fecha
-				+ ", imagen=" + x + "]";
-	}
+
 
 }
