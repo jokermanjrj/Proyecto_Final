@@ -6,13 +6,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Notas</title>
-
+<style>
+	.contenedor {
+	background-image: url("./prueba.jpg");
+		justify-content: center;
+		
+		
+	}
+	.boton {
+		background-color: grey;
+		opacity: 95%;
+		border-radius: 20px;
+		font-size: 40px;
+		text-align: center;
+		width: 50%;
+		height: 500px;
+		
+	}
+	
+	
+	.boton:hover{
+		background-color: black;
+	}
+	
+	.link{
+		color: white;
+		text-decoration: none;
+		width: 100%;
+		height: 100%;
+	}
+	
+	#titulo {
+		color: white;
+		text-align: center;
+		background-color: grey;
+		opacity: 80px;
+		padding: 20px;
+		border-radius: 20px;
+		font-size: 80px;
+	}
+</style>
 </head>
 <body>
 
 	<h3>tareas List</h3>
 	<s:a namespace="/tarea" action="calendar"> Calendario</s:a>
-	<s:a namespace="/tarea" action="add"> Añadir Tarea</s:a>
+	<s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a>
 	<s:a namespace="/clase" action="listar">Clases</s:a>
 	<s:a namespace="/alumno" action="listar">Alumnos</s:a>
 	<s:a namespace="/tarea" action="index"> ver Tarea</s:a>
@@ -43,11 +82,13 @@
 					<s:url var="url_delete" namespace="/tarea" action="delete"> 
 						<s:param name="id">${tarea.id }</s:param>
 					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')">Borrar</s:a>
+					<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
+		
+	
 
 </body>
 </html>
