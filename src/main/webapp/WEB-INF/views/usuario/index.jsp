@@ -89,12 +89,12 @@ input[type=submit]:hover {
 	<p style="color: red; text-align: center;">${errorMessage }</p>
 	<s:form method="post" namespace="/usuario" action="identificarse"  style="width: 100%;">
 		<s:textfield name="correo" placeholder="correo" style="align-text: center;"></s:textfield>
-		<s:textfield name="pasword" placeholder="contraseï¿½a" style=""></s:textfield>
+		<s:textfield name="pasword" placeholder="contraseña" style=""></s:textfield>
 	<div style="text-align:center">
 		<s:submit value="Identificarse" style="margin-left: 45%;" ></s:submit>
 	</div>
 	</s:form>
-	<s:a namespace="/usuario" action="register" style="text-align: center;">ï¿½Quiï¿½res registrarte?</s:a>
+	<s:a namespace="/usuario" action="register" style="text-align: center;">¿Quieres registrarte?</s:a>
 </div>
 
 

@@ -7,71 +7,88 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Notas</title>
 <style>
-	.contenedor {
-	background-image: url("./prueba.jpg");
-		justify-content: center;
-		
-		
-	}
-	.boton {
-		background-color: grey;
-		opacity: 95%;
-		border-radius: 20px;
-		font-size: 40px;
-		text-align: center;
-		width: 50%;
-		height: 500px;
-		
-	}
-	
-	
-	.boton:hover{
-		background-color: black;
-	}
-	
-	.link{
-		color: white;
-		text-decoration: none;
-		width: 100%;
-		height: 100%;
-	}
-	
-	#titulo {
-		color: white;
-		text-align: center;
-		background-color: grey;
-		opacity: 80px;
-		padding: 20px;
-		border-radius: 20px;
-		font-size: 80px;
-	}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.row {
+	display: flex;
+}
+.column_title {
+border-radius: 15px;
+text-align: center;
+background-color: grey;
+min-width: 150px;
+height: 100px;
+font-size: 25px;
+
+}
+
+.column {
+font-size: 20px;
+text-align: center;
+
+}
 </style>
 </head>
 <body>
 
-	<h3>tareas List</h3>
-	<s:a namespace="/tarea" action="calendar"> Calendario</s:a>
-	<s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a>
-	<s:a namespace="/clase" action="listar">Clases</s:a>
-	<s:a namespace="/alumno" action="listar">Alumnos</s:a>
-	<s:a namespace="/tarea" action="index"> ver Tarea</s:a>
+	<!-- TITULO -->
+		<div style="background-color:grey; margin:0px; padding: 20px;">
+		<h1 style="text-align:center;">INICIO</h1>
+			<ul>
+			<s:url var="url_add" namespace="/tarea" action="add"> 
+						<s:param name="id_usuario">${sessionScope.id }</s:param>
+					</s:url>
+			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
+			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
+			  <li><s:a namespace="/clase" action="listar">Clases</s:a></li>
+			 <li><s:a namespace="/alumno" action="listar">Alumnos</s:a></li>
+			 <li><s:a namespace="/tarea" action="index"> ver Tarea</s:a></li>
+			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
+			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
+			</ul>
+		</div>
+	
+
 	<table border="1">
 	<!--COMENTARIO DE FECHT -->
 		<tr>
-			<th>Id</th>
-			<th>Id_usuario</th>
-			<th>titulo</th>
-			<th>Nota</th>
-			<th>Fecha</th>
-			<th>Audio</th>
+			<th class="column_title">Id</th>
+			<th class="column_title">Id_usuario</th>
+			<th class="column_title">titulo</th>
+			<th class="column_title">Nota</th>
+			<th class="column_title">Fecha</th>
+			<th class="column_title">Audio</th>
 		</tr>
 		<c:forEach var="tarea" items="${tareas }">
 			<tr>
-				<td>${tarea.id }</td>
-				<td>${tarea.id_usuario }</td>
-				<td>${tarea.titulo }</td>
-				<td>${tarea.descripcion }</td>
-				<td>${tarea.fecha }</td>
+				<td class="column">${tarea.id }</td>
+				<td class="column">${tarea.id_usuario }</td>
+				<td class="column">${tarea.titulo }</td>
+				<td class="column">${tarea.descripcion }</td>
+				<td class="column">${tarea.fecha }</td>
 				
 				<td><img src="${tarea.audio }" width="120" height="100"></td>
 				<td> 
@@ -87,7 +104,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-		
+
 	
 
 </body>
