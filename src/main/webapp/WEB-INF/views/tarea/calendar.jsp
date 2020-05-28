@@ -18,6 +18,12 @@
 	height: auto;
 }
 
+.container_1 {
+	background-color: grey;
+	min-width: 100%;
+	min-height: 100px;
+}
+
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -79,48 +85,19 @@ li a:hover:not(.active) {
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
-	
-	<!-- LISTA DE DIAS -->
-<div class="container">	
-	<div id="global" style="display: flex; flex-wrap: wrap;"> 	
-	 	<c:forEach var="dias" items="${calendario.getDias()}">
-	 	<div  id="mensaje" style="background-color: grey; margin: 10px; padding: 5px; min-width: 100%;">
-		 	
-		 	<c:set var="dia" value="${dias.año}-${dias.mes}-${dias.dia}" />
-
-		 	<p>${dias.dia+1}/${dias.mes+1}/${dias.año}</p>
-		 	
-		 	<c:set var="dia" value="${dias.año}-${dias.mes+1}-${dias.dia+1}" />
-
-		    
-		    <c:forEach var="tarea" items="${tareas }">
-				    <!--<p>${dia}</p>
-				    <p>${tarea.fecha}</p>-->
-		    	<c:if test="${dia == tarea.fecha }">
-					<ul>
-					  <li><s:url var="url_edit" namespace="/tarea" action="edit"> 
-							<s:param name="id">${tarea.id }</s:param>
-							</s:url>						
-							 
-							<s:a href="%{url_edit}" >Titulo : ${tarea.titulo }<br> Descripcion : ${tarea.descripcion }</s:a> 
-						
-							
-						</li>
-						
-						<li>
-						<s:url var="url_delete" namespace="/tarea" action="delete"> 
-							<s:param name="id">${tarea.id }</s:param>
-							</s:url>
-							<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>	
-						</li>
-					</ul>
-							
-				</c:if>
-			</c:forEach>
-		</div>
-	    </c:forEach> 
 		
-    </div>
-   </div>
+		
+<!-- CALENDARIO -->	
+<div class=container_1>
+	<h1 style="text-align: center;">calendario</h1>
+
+	<c:forEach var="dias" items="${calendario.getMeses()}">
+		<p>${calendario.getMeses()}</p>
+		<p>${calendario.meses[1].getDias()}</p>
+		
+	</c:forEach>
+</div>
+
+
 </body>
 </html>

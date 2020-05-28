@@ -3,13 +3,15 @@ package com.proyecto.entities;
 public class Meses {
 
 	String nombre;
-	int dias;
+	int dias,mes;
 	
 	
 	
-	public Meses(String nombre, int dias) {
+	public Meses(String nombre, int dias,int mes) {
 		this.nombre = nombre;
 		this.dias = dias;
+		this.mes = mes;
+
 	}
 	
 	
@@ -24,6 +26,14 @@ public class Meses {
 	}
 	public void setDias(int dias) {
 		this.dias = dias;
+	}
+	
+	public int getMes() {
+		
+		return mes;
+	}
+	public void setMes(int mes) {
+		this.dias = mes;
 	}
 	
 	
