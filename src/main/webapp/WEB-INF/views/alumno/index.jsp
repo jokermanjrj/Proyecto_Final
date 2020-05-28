@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<<<<<<< refs/remotes/origin/master
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px";>
 			
@@ -29,6 +30,12 @@
 			</ul>
 	</div>
 	<!--<s:a namespace="/alumno" action="add"> Añadir Alumno</s:a>-->
+=======
+<h1>Tus alumnos</h1>
+	<!--<s:a namespace="/alumno" action="add"> Añadir Alumno</s:a>
+	<!--<s:a namespace="/cursa" action="listar"> cursando</s:a>-->
+	
+>>>>>>> 0.0.26
 	<c:forEach var="clase" items="${clases }">
 		<ul>
 			<li>

@@ -28,8 +28,13 @@
 			<s:url var="usuario_url" namespace="/tarea" action="index">
 				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 			</s:url>
+<<<<<<< refs/remotes/origin/master
 			 <li><s:a href="%{usuario_url}"> ver Tareas</s:a></li>
 			  <!-- Accion para cerrar sesión que llama a la acciï¿½n exit de user y de vuelve el login-->
+=======
+			 <li><s:a href="%{usuario_url}"> ver Tarea</s:a></li>
+			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
+>>>>>>> 0.0.26
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>

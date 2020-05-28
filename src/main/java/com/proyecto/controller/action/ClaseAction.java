@@ -29,11 +29,21 @@ public class ClaseAction extends ActionSupport{
 	
 	@Autowired
 	private ClaseService claseService;
+<<<<<<< refs/remotes/origin/master
 	@Autowired
 	private AlumnoService alumnoService;
 	
 	private List <Clase>clases;
 	private List<Alumno> alumnos;
+=======
+	
+	@Autowired
+	private AlumnoService alumnoService;
+
+	private List<Clase> clases;
+	private List<Alumno> alumnos;
+
+>>>>>>> 0.0.26
 	private Clase clase;
 	private int idClase;
 	private String nombre;
@@ -77,7 +87,11 @@ public class ClaseAction extends ActionSupport{
 	public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}
+<<<<<<< refs/remotes/origin/master
 	
+=======
+
+>>>>>>> 0.0.26
 	public List<Clase> getClases() {
 		return clases;
 	}
@@ -88,15 +102,34 @@ public class ClaseAction extends ActionSupport{
 		return alumno;
 	}
 
+<<<<<<< refs/remotes/origin/master
 	public void setAlumno(String alumno) {
 		this.alumno = alumno;
 	}
+=======
+	public String getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(String alumno) {
+		this.alumno = alumno;
+	}
+
+>>>>>>> 0.0.26
 	public Clase getClase() {
 		return clase;
 	}
 	public void setClase(Clase clase) {
 		this.clase = clase;
 	}
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -145,6 +178,7 @@ public class ClaseAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+<<<<<<< refs/remotes/origin/master
 	@Action(value = "add", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/clase/addClase.jsp")
 		})
@@ -153,6 +187,33 @@ public class ClaseAction extends ActionSupport{
 			return SUCCESS;
 		}
 	//GUARDA LA TAREA ANTES CREADA
+=======
+	@Action(value = "alumnoClase", results = { @Result(name = SUCCESS, location = "/WEB-INF/views/clase/asociarAlumno.jsp") })
+	public String alumnoClase() {
+		this.clases = this.claseService.findAll();
+		this.alumnos = this.alumnoService.findAll();
+		return SUCCESS;
+	}
+	@Action(value = "guardarRelacion", results = {  @Result(name = SUCCESS,type="redirectAction", params = { "namespace","/clase",  "actionName",  "listar"}),
+			@Result(name = INPUT, type="redirectAction", params = { "namespace","/clase",  "actionName",  "listar"}) })
+	public String guardarRelacion() {
+		System.out.println(nombre);
+		System.out.println("-----");
+		String nombres[] = nombre.split(",");
+		for (String x : nombres) {
+			System.out.println(x);
+		}
+		System.out.println(alumno);
+		System.out.println("-----");
+		String alum[] = alumno.split(",");
+		for (String x : alum) {
+			System.out.println(x);
+		}
+		return SUCCESS;
+	}
+
+	// GUARDA LA TAREA ANTES CREADA
+>>>>>>> 0.0.26
 	@Action(value = "save", results = {
 			@Result(name = SUCCESS, type = "redirectAction", params = { "namespace", "/clase", "actionName",
 					"listar" }),

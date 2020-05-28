@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+<<<<<<< refs/remotes/origin/master
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
 			
@@ -36,6 +37,19 @@
 	</c:if>
 	<c:if test="${clases.size() > 0 }">
 		<table border="1">
+=======
+	<h1>Lista de clases</h1>
+	<s:a namespace="/clase" action="add"> Añadir Tarea</s:a>
+	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
+
+	
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>nombre</th>
+		</tr>
+		<c:forEach var="clase" items="${clases }">
+>>>>>>> 0.0.26
 			<tr>
 				<th>Id</th>
 				<th>nombre</th>
