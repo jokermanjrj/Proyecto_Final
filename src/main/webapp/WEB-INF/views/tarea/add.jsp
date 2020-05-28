@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +39,10 @@
 	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;" theme="simple">
 		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
 		<s:textarea  name="tarea.descripcion" placeholder="Descripción" style="height:200px;" class="campo"></s:textarea>
-		<br>
-		<input type="date" name="tarea.fecha"  >
+		<s:date  name="tarea.fecha"  format = "dd/MM/yyyy"></s:date>
 		<br>
 		<s:file label="Seleccione imagen" name="fileUpload" accept="image/*" class="campo"></s:file>
+		<br>
 		<s:submit value="Save" class="campo"></s:submit>
 		<s:hidden name="tarea.id_usuario" value="%{#usuario}"></s:hidden>
 	</s:form>
