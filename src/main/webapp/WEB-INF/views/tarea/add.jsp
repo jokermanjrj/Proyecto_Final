@@ -15,7 +15,7 @@
 <body>
 
 	<!-- TITULO -->
-		<div style="background-color:grey; margin:0px; padding: 20px;">
+	<div style="background-color:grey; margin:0px; padding: 20px;">
 		<h1 style="text-align:center;">AÑADIR TAREA</h1>
 			<ul>
 			<s:url var="url_add" namespace="/tarea" action="add"> 
@@ -27,18 +27,20 @@
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
-		</div>
+	</div>
 
 	
 <div class="container">
 		<s:set var="usuario">${sessionScope.id }</s:set>
 		<s:property value="#usuario"/>
-	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;">
-		<s:textfield label="Titulo" name="tarea.titulo" placeholder="Titulo"></s:textfield>
-		<s:textarea label="descripcion" name="tarea.descripcion" placeholder="Descripción" style="height:200px;"></s:textarea>
-		<s:textfield label="fecha" name="tarea.fecha" placeholder="Fecha"></s:textfield>
-		<s:file label="Seleccione imagen" name="fileUpload"></s:file>
-		<s:submit value="Save" align="left"></s:submit>
+	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;" theme="simple">
+		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
+		<s:textarea  name="tarea.descripcion" placeholder="Descripción" style="height:200px;" class="campo"></s:textarea>
+		<s:textfield  name="tarea.fecha" placeholder="Fecha" class="campo"></s:textfield>
+		<br>
+		<s:file label="Seleccione imagen" name="fileUpload" class="campo"></s:file>
+		<br>
+		<s:submit value="Save" class="campo"></s:submit>
 		<s:hidden name="tarea.id_usuario" value="%{#usuario}"></s:hidden>
 	</s:form>
 </div>

@@ -28,13 +28,13 @@
 	
 <div class="container">
 	<s:set var="usuario">${sessionScope.id }</s:set>
-	<s:form methof="post" namespace="/tarea" action="update" style="width: 100%;">
+	<s:form methof="post" namespace="/tarea" action="update" style="width: 100%;" theme="simple">
 	
-		<s:textfield label="Titulo" name="tarea.titulo" placeholder="Titulo"></s:textfield>
-		<s:textfield label="nota" name="tarea.descripcion" placeholder="Titulo"></s:textfield>
-		<s:textfield label="fecha" name="tarea.fecha" placeholder=""></s:textfield>
-	
-		<s:submit value="Save" align="left"></s:submit>
+		<s:textfield name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
+		<s:textarea name="tarea.descripcion" placeholder="Titulo" class="campo"></s:textarea>
+		<s:textfield name="tarea.fecha" placeholder="2020-05-02" class="campo"></s:textfield>
+		<br>
+		<s:submit value="Save" align="left" class="campo"></s:submit>
 		<s:hidden name="tarea.id_usuario" value="%{#usuario}"></s:hidden>
 		<s:hidden name="tarea.id"></s:hidden>
 		
