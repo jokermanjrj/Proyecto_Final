@@ -7,63 +7,7 @@
 <html>
 <head>
 <style>
-#global {
-	height: 800px;
-	width: 70%;
-	border: 1px solid #ddd;
-	background: #f1f1f1;
-	overflow-y: scroll;
-}
-#mensajes {
-	height: auto;
-}
-
-.container_1 {
-	background-color: grey;
-	min-width: 100%;
-	min-height: 100px;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: 10px;
-  width: 70%;
-}
-
-.texto {
-	padding:4px;
-	background:#fff;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #4CAF50;
-}
-
+<jsp:include page="form.css"/>
 </style>
 <meta charset="ISO-8859-1" >
 <title>Calendar</title>
@@ -72,8 +16,7 @@ li a:hover:not(.active) {
 <body style="margin:0px;">
 
 	<!-- TITULO -->
-		<div style="background-color:grey; margin:0px; padding: 20px;">
-		<h1 style="text-align:center;">EDITAR TAREA</h1>
+		<div style="background-color:grey; margin:0px;">
 			<ul>
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>

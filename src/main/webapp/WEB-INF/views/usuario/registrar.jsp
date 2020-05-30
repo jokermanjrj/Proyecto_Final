@@ -12,12 +12,12 @@
 </head>
 <body>
 <div class="container">
-	<h3 style="text-align: center;">Inserte datos</h3>
+	<h1 style="text-align: center;">Inserte datos</h1>
 		<s:form method="post" namespace="/usuario" action="save" style="width: 100%;">
 		<s:textfield  name="usuario.correo" placeholder="correo" class="boton"></s:textfield>
 		<s:textfield  name="usuario.pasword" placeholder="contraseña" class="boton"></s:textfield>
 		
-		<s:submit value="Save" align="left"></s:submit>
+		<s:submit value="Save"></s:submit>
 	</s:form>
 </div>
 </body>

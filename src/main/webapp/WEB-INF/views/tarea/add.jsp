@@ -15,9 +15,8 @@
 <body>
 
 	<!-- TITULO -->
-	<div style="background-color:grey; margin:0px; padding: 20px;">
-		<h1 style="text-align:center;">AÑADIR TAREA</h1>
-			<ul>
+	<div style="background-color:grey; margin:0px; ">
+			<ul style="padding: 20px";>
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 					</s:url>
