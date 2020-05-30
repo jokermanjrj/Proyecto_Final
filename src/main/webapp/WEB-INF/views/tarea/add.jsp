@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <style>
-<jsp:include page="form.css"/>
+<jsp:include page="../tarea/form.css"/>
 
 </style>
 
@@ -17,18 +17,18 @@
 	<!-- TITULO -->
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px";>
+			
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
-					</s:url>
+			</s:url>
+			
 			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
 			  <li><a href="#news">Alumnos</a></li>
-
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-
-	
+		
 <div class="container">
 		<s:set var="usuario">${sessionScope.id }</s:set>
 		<s:property value="#usuario"/>

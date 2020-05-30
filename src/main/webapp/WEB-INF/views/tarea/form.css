@@ -29,7 +29,7 @@ li a:hover:not(.active) {
   box-sizing: border-box;
 }
 
-input[type=text], select, textarea, file {
+input[type=text], select, textarea, textfield, file {
   width: 50%;
   padding: 12px;
   border: 1px solid #ccc;
