@@ -14,22 +14,25 @@
 </head>
 <body>
 	<div style="background-color:grey; margin:0px; ">
-			<ul style="padding: 20px";>
+			<ul style="padding: 20px;">
 			
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 			</s:url>
 			
 			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
-			  <li><a href="#news">Alumnos</a></li>
+			  <li><a>Inicio</a></li>
+			  
+			  <li><img src="../usuario/prueba.jpg" width="" height=""></li>
+			  
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
 <div class="container">
-	<s:form methof="post" namespace="/clase" action="save">
+	<s:form methof="post" namespace="/clase" action="save"  theme="simple" style="width: 50%;">
 	
-		<s:textfield label="Nombre de la clase" name="clase.nombre_clase"></s:textfield>
+		<s:textfield placeholder="Nombre de la clase" name="clase.nombre_clase" ></s:textfield>
 		
 		<s:submit value="Save" align="left"></s:submit>
 	</s:form>

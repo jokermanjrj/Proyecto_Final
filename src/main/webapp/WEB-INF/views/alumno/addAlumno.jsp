@@ -13,7 +13,7 @@
 <body>
 
 		<div style="background-color:grey; margin:0px; ">
-			<ul style="padding: 20px";>
+			<ul style="padding: 20px;">
 			
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
@@ -25,7 +25,7 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<s:form methof="post" namespace="/alumno" action="save">
+	<s:form methof="post" namespace="/alumno" action="save" theme="simple">
 	
 		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno"></s:textfield>
 		<s:textfield label="Apellido del alumno" name="alumno.apellido_alumno"></s:textfield>
