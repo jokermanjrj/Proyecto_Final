@@ -15,6 +15,10 @@
 </head>
 <body>
 <<<<<<< refs/remotes/origin/master
+<<<<<<< refs/remotes/origin/master
+=======
+
+>>>>>>> 0.0.31
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
 			

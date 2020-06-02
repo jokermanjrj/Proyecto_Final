@@ -27,15 +27,18 @@
 					</s:url>
 			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
 			  <li><a href="#news">Alumnos</a></li>
+<<<<<<< refs/remotes/origin/master
 
 >>>>>>> 0.0.26
+=======
+			  <li><s:a href="%{url_add}"> Añadir Tarea</s:a></li>
+>>>>>>> 0.0.31
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
-		
-		        <input type = 'button' value = 'Clicked 0 times' id = 'Button' data-clicks = 0 ></input>
-		
+		<input type="button" id="boton" value="+1" onClick="cambiar();">
+  <div id="contador">0</div>
 <!-- CALENDARIO -->	
 <!-- <div class=container_1>
 	<h1 style="text-align: center;">calendario</h1>
@@ -52,10 +55,21 @@ var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
 
 var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
 
+var contador = -1;
+
+function cambiar()
+{ 
+	document.getElementById('contador').innerHTML = contador += 1;   
+	estructurar(contador);
+}
+
 estructurar();
 
-function estructurar() {
-  for (m = 0; m <= 0; m++) {
+
+function estructurar(contador) {
+  let container = document.createElement("DIV");
+  container.className = "container";
+  for (m = contador; m <= contador; m++) {
     //Mes
     let mes = document.createElement("DIV");
     mes.className = "mes";
@@ -92,6 +106,7 @@ function estructurar() {
       }     
     }    
   }
+  numerar()
 }
 
 numerar();

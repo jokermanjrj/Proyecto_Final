@@ -12,6 +12,9 @@
 </head>
 <body>
 <<<<<<< refs/remotes/origin/master
+<<<<<<< refs/remotes/origin/master
+=======
+>>>>>>> 0.0.31
 
 		<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
@@ -42,6 +45,32 @@
 		<s:submit value="Save" align="left"></s:submit>
 		<s:hidden name="id" value="%{#idClase}"></s:hidden>
 	</s:form>
+<<<<<<< refs/remotes/origin/master
+=======
+	
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>nombre</th>
+		</tr>
+		<c:forEach var="clase" items="${clases }">
+			<tr>
+				<td>${clase.idClase }</td>
+				<td>${clase.nombre_clase }</td>
+				<td> 
+				<s:url var="url_edit" namespace="/clase" action="edit"> 
+						<s:param name="idClase">${clase.idClase }</s:param>
+					</s:url>
+					<s:a href="%{url_edit}" >Editar</s:a> | 
+					<s:url var="url_delete" namespace="/clase" action="delete"> 
+						<s:param name="idClase">${clase.idClase }</s:param>
+					</s:url>
+					<s:a href="%{url_delete}" onclick="return confirm('�ESTAS SEGURO?')">Borrar</s:a>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+>>>>>>> 0.0.31
 
 </body>
 </html>
