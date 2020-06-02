@@ -37,7 +37,9 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
-		<input type="button" id="boton" value="+1" onClick="cambiar();">
+		<input type="button" id="boton" value="+1" onClick="sumar();">
+		<input type="button" id="boton" value="-1" onClick="restar();">
+		
   <div id="contador">0</div>
 <!-- CALENDARIO -->	
 <!-- <div class=container_1>
@@ -55,24 +57,39 @@ var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
 
 var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
 
-var contador = -1;
+var contador = 0;
+estructurar(contador);
 
-function cambiar()
+
+function sumar()
 { 
+	var myobj = document.getElementById("mes");
+	myobj.remove();
+	
 	document.getElementById('contador').innerHTML = contador += 1;   
 	estructurar(contador);
 }
 
-estructurar();
+function restar()
+{ 
+	var myobj = document.getElementById("mes");
+	myobj.remove();
+	document.getElementById('contador').innerHTML = contador -= 1;   
+	estructurar(contador);
+}
+
 
 
 function estructurar(contador) {
+	
+		
   let container = document.createElement("DIV");
   container.className = "container";
+ 
   for (m = contador; m <= contador; m++) {
     //Mes
     let mes = document.createElement("DIV");
-    mes.className = "mes";
+    mes.id = "mes";
     document.body.appendChild(mes);
     //Tabla
     let tabla_mes = document.createElement("TABLE");
