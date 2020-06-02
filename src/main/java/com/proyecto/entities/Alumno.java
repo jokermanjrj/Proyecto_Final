@@ -1,5 +1,6 @@
 package com.proyecto.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -34,10 +37,27 @@ public class Alumno {
 		this.apellido_alumno = apellido_alumno;
 	}
 	
-	/*@ManyToMany(mappedBy = "alumnos")
-	private List<Clase> clases;*/
+	@JoinTable(name = "cursa", joinColumns = @JoinColumn(name = "Alumno_id",  nullable = false), inverseJoinColumns = @JoinColumn(name = "Clase_id",  nullable = false))
+	@ManyToMany
+	private List<Clase> clases;
+	
+	public void addClases(Clase clase) {
+		if (this.clases == null) {
+			this.clases = new ArrayList<Clase>();
+		}
+
+		this.clases.add(clase);
+	}
 	
 	//GETTERS Y SETTERS
+	
+	public List<Clase> getAlumnos() {
+		return clases;
+	}
+
+	public void setAlumnos(List<Clase> clases) {
+		this.clases = clases;
+	}
 	
 	public int getId() {
 		return id;

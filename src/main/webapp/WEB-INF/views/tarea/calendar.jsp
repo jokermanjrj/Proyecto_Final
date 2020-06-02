@@ -19,10 +19,7 @@
 	<!-- TITULO -->
 		<div style="background-color:grey; margin:0px;">
 			<ul>
-			<s:url var="url_add" namespace="/tarea" action="add"> 
-						<s:param name="id_usuario">${sessionScope.id }</s:param>
-					</s:url>
-			  <li><s:a href="%{url_add}"> Aï¿½adir Tarea</s:a></li>
+			 <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>

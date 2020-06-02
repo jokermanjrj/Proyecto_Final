@@ -13,9 +13,9 @@ public class TareaRepositoryImpl implements TareaRepository{
 	private EntityManager entityManager;
 	
 	@SuppressWarnings("unchecked")
-	public List<Tarea> findAll() {
+	public List<Tarea> findAll(int id_usuario) {
 		try {
-			return entityManager.createQuery("from Tarea").getResultList();
+			return entityManager.createQuery("from Tarea where id_usuario = :id_usuario").setParameter("id_usuario", id_usuario).getResultList();
 		}catch(Exception e) {
 			return null;
 		}

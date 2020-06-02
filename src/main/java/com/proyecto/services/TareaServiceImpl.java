@@ -18,8 +18,8 @@ public class TareaServiceImpl implements TareaService{
 		this.tareaRepository = tareaRepository;
 	}
 
-	public List<Tarea> findAll() {
-		return this.tareaRepository.findAll();
+	public List<Tarea> findAll(int id_usuario) {
+		return this.tareaRepository.findAll(id_usuario);
 	}
 
 	public Tarea find(int id) {

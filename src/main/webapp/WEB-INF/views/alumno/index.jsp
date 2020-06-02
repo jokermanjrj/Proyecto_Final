@@ -19,20 +19,30 @@
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 			</s:url>
-			
-			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
+			<s:url var="usuario_url" namespace="/tarea" action="calendar">
+					<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+				</s:url>
+			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
 			  <li><a href="#news">Alumnos</a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<s:a namespace="/alumno" action="add"> Añadir Alumno</s:a>
+	<!--<s:a namespace="/alumno" action="add"> Añadir Alumno</s:a>-->
+	<c:forEach var="clase" items="${clases }">
+		<ul>
+			<li>
+				<s:url var="url_clase" namespace="/alumno" action="listarClases">
+					<s:param name="id">${clase.idClase} </s:param>
+				</s:url>
+				<s:a href="%{url_clase}">${clase.nombre_clase }</s:a>
+			</li>
+		</ul>
+	</c:forEach>
+	
 	<table border="1">
 		<tr>
-			<th>Id</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-
+			<th colspan="4">${clase.nombre_clase}</th>
 		</tr>
 		<c:forEach var="alumno" items="${alumnos }">
 			<tr>

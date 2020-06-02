@@ -19,10 +19,13 @@
 			<ul style="padding: 20px;">
 			
 			<s:url var="url_add" namespace="/tarea" action="add"> 
-						<s:param name="id_usuario">${sessionScope.id }</s:param>
+							<s:param name="id_usuario">${sessionScope.usuario.getId() }</s:param>
 			</s:url>
+			<s:url var="usuario_url" namespace="/tarea" action="calendar">
+					<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+				</s:url>
 			
-			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
+			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
 			  <li><a>Inicio</a></li>
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
@@ -30,7 +33,7 @@
 	</div>
 		
 <div class="container">
-		<s:set var="usuario">${sessionScope.id }</s:set>
+		<s:set var="usuario">${sessionScope.usuario.getId() }</s:set>
 		<s:property value="#usuario"/>
 	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;" theme="simple">
 		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>

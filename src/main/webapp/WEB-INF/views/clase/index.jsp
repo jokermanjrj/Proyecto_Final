@@ -20,15 +20,17 @@
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 			</s:url>
-			
-			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
+			<s:url var="usuario_url" namespace="/tarea" action="calendar">
+					<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+				</s:url>
+			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
 			  <li><a href="#news">Inicio</a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
 	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" width="" height=""></s:a>
-	
+	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
 	<table border="1">
 		<tr>
 			<th>Id</th>

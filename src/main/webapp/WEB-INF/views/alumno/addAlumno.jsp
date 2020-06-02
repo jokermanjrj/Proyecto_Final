@@ -18,19 +18,22 @@
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 			</s:url>
-			
-			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
+			<s:url var="usuario_url" namespace="/tarea" action="calendar">
+					<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+				</s:url>
+			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
 			  <li><a href="#news">Alumnos</a></li>
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<s:form methof="post" namespace="/alumno" action="save" theme="simple">
+	<s:set var="idClase">${id}</s:set>
+	<s:form methof="post" namespace="/alumno" action="save" enctype="multipart/form-data" theme="simple">
 	
-		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno"></s:textfield>
-		<s:textfield label="Apellido del alumno" name="alumno.apellido_alumno"></s:textfield>
+		<s:file label="Seleccione archivo" name="fileUpload"></s:file>
 		
 		<s:submit value="Save" align="left"></s:submit>
+		<s:hidden name="id" value="%{#idClase}"></s:hidden>
 	</s:form>
 
 </body>

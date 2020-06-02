@@ -76,6 +76,17 @@ public class Clase {
 	public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}*/
+	@ManyToMany(mappedBy = "clases")
+	private List<Alumno> alumnos;
+	
+
+	public List<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(List<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
 
 	public int getIdClase() {
 		return idClase;

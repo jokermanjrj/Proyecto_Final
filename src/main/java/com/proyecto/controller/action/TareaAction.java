@@ -124,7 +124,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		public String calendar() {
 			this.calendario = new Calendario();
 			//System.out.println(calendario.getMeses());
-			this.tareas = this.tareaService.findAll();
+			this.tareas = this.tareaService.findAll(id_usuario);
 			return SUCCESS;
 		}
 	
@@ -135,7 +135,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp")
 	})
 	public String index() {
-		this.tareas = this.tareaService.findAll();
+		this.tareas = this.tareaService.findAll(id_usuario);
 		return SUCCESS;
 	}
 	
@@ -164,10 +164,23 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	
 		public String save() throws Exception {
 		// informacion d
-				System.out.println("File Name: " + this.fileUploadFileName);
-				System.out.println("File Size(bytes): " + this.fileUpload.length());
-				System.out.println("File Type: "+ this.fileUploadContentType);
-				this.tarea.setAudio(fileUpload);
+		if(this.fileUploadFileName != null) {
+			System.out.println("File Name: " + this.fileUploadFileName);
+			System.out.println("File Size(bytes): " + this.fileUpload.getAbsolutePath());
+			System.out.println("File Type: "+ this.fileUploadContentType);
+			
+			 /*BufferedImage image = ImageIO.read(new File(this.fileUpload.getAbsolutePath()));
+		        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			       ImageIO.write(image, "jpg", bos );
+			       byte [] array = bos.toByteArray();
+			      /* ByteArrayInputStream bis = new ByteArrayInputStream(data);
+			       BufferedImage bImage2 = ImageIO.read(bis);
+			       ImageIO.write(bImage2, "jpg", new File("C:\\Users\\luisf\\OneDrive\\Escritorio\\output.jpg") );
+			       System.out.println("image created");*/
+			       this.tarea.setAudio(fileUpload);
+			
+		}
+				
 		this.tareaService.create(tarea);
 			return SUCCESS;
 		}

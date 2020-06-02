@@ -100,7 +100,7 @@ public class UsuarioAction extends ActionSupport{
 			if(this.usuarios.size() == 1) {
 				this.usuario =this.usuarios.get(0);
 				Map<String, Object> session = ActionContext.getContext().getSession();
-				session.put("id", this.usuario.getId());
+				session.put("usuario", this.usuario);
 				return SUCCESS;
 			}else {
 				this.errorMessage = "Invalid Account";

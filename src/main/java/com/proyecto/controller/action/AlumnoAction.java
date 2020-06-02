@@ -1,8 +1,13 @@
 package com.proyecto.controller.action;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
@@ -10,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.proyecto.entities.Alumno;
 import com.proyecto.entities.Clase;
 import com.proyecto.services.AlumnoService;
+import com.proyecto.services.ClaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,10 +29,66 @@ public class AlumnoAction extends ActionSupport{
 	
 	@Autowired
 	private AlumnoService alumnoService;
+	@Autowired
+	private ClaseService claseService;
 	
+	private File fileUpload;
+	private String fileUploadContentType;
+	private String fileUploadFileName;
 	private List<Alumno> alumnos;
 	private Alumno alumno;
 	private int id;
+	private String nombre;
+	private List<Clase> clases;
+	private Clase clase;
+	
+	public String getFileUploadContentType() {
+		return fileUploadContentType;
+	}
+
+	public void setFileUploadContentType(String fileUploadContentType) {
+		this.fileUploadContentType = fileUploadContentType;
+	}
+
+	public String getFileUploadFileName() {
+		return fileUploadFileName;
+	}
+
+	public void setFileUploadFileName(String fileUploadFileName) {
+		this.fileUploadFileName = fileUploadFileName;
+	}
+
+	public File getFileUpload() {
+		return fileUpload;
+	}
+
+	public void setFileUpload(File fileUpload) {
+		this.fileUpload = fileUpload;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public List<Clase> getClases() {
+		return clases;
+	}
+
+	public void setClases(List<Clase> clases) {
+		this.clases = clases;
+	}
+	
+	public Clase getClase() {
+		return clase;
+	}
+
+	public void setClase(Clase clase) {
+		this.clase = clase;
+	}
 	
 	public List<Alumno> getAlumnos() {
 		return alumnos;
@@ -51,27 +113,73 @@ public class AlumnoAction extends ActionSupport{
 			@Result(name = SUCCESS, location = "/WEB-INF/views/alumno/index.jsp")
 		})
 		public String listar() {
+		this.clases = this.claseService.findAll();
 			this.alumnos = this.alumnoService.findAll();
 			return SUCCESS;
 		}
+	
+	@Action(value = "listarClases", results = {
+			@Result(name = SUCCESS, location = "/WEB-INF/views/alumno/AlumnosPorClase.jsp") })
+	public String listarClases() {
+		this.clases = this.claseService.findAll();
+		this.alumnos = this.alumnoService.FiltroClase(id);
+		//this.cursas = this.cursaService.findAll(id);
+		List <Alumno> a = this.alumnoService.FiltroClase(id);
+	       
+	       for (Alumno a2 : a) {
+	    	   System.out.println(a2.getNombre_alumno() + "\n" + a2.getApellido_alumno());
+	       }
+		return SUCCESS;
+	}
 	
 	@Action(value = "add", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/alumno/addAlumno.jsp")
 		})
 		public String add() {
 			this.alumno = new Alumno ();
+			this.clases = this.alumnoService.findClases();
 			return SUCCESS;
 		}
 	//GUARDA LA TAREA ANTES CREADA
 	@Action(value = "save", results = {
-			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/alumno",  "actionName",  "listar"}),
-			@Result(name = INPUT, type="redirectAction", params = { "namespace","/alumno",  "actionName",  "listar"})
-		})
+			@Result(name = SUCCESS, type = "redirectAction", params = { "namespace", "/tarea", "actionName",
+					"index" }),
+			@Result(name = INPUT, type = "redirectAction", params = { "namespace", "/tarea", "actionName",
+					"index" }) }, interceptorRefs = { @InterceptorRef(value = "fileUpload"),
+							@InterceptorRef("defaultStack") })
 		public String save() throws Exception {
 		
-		this.alumnoService.create(alumno);
-			return SUCCESS;
+		if (this.fileUploadFileName != null) {
+			System.out.println("File Name: " + this.fileUploadFileName);
+			System.out.println("File Size(bytes): " + this.fileUpload.length());
+			System.out.println("File Type: " + this.fileUploadContentType);
+			try {
+				BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileUpload), "UTF8"));
+				String str;
+				System.out.println("id pasado es " + id);
+				this.clase = this.claseService.find(id);
+				while ((str = in.readLine()) != null) {
+					
+					String nombres[] = str.split(",");
+					System.out.println(nombres.length);
+					System.out.println(nombres[0]);
+					System.out.println(nombres[1]);
+					this.alumno = new Alumno();
+					this.alumno.setNombre_alumno(nombres[0]);
+					this.alumno.setApellido_alumno(nombres[1]);
+					this.alumno.addClases(clase);
+					this.alumnoService.create(alumno);
+
+				}
+
+				in.close();
+			} catch (Exception e) {
+				System.out.println("error al leer el fichero alumnos");
+			}
+
 		}
+		return SUCCESS;
+	}
 	
 	//ELIMINA LA TAREA ACTUAL
 		@Action(value = "delete", results = {

@@ -16,7 +16,7 @@
 		<h1 style="text-align:center;">EDITAR TAREA</h1>
 			<ul>
 			<s:url var="url_add" namespace="/tarea" action="add"> 
-						<s:param name="id_usuario">${sessionScope.id }</s:param>
+						<s:param name="id_usuario">${sessionScope.usuario.getId() }</s:param>
 					</s:url>
 			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
 
@@ -26,7 +26,7 @@
 		</div>
 	
 <div class="container">
-	<s:set var="usuario">${sessionScope.id }</s:set>
+	<s:set var="usuario">${sessionScope.usuario.getId() }</s:set>
 	<s:form methof="post" namespace="/tarea" action="update" style="width: 100%;" theme="simple">
 	
 		<s:textfield name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>

@@ -6,7 +6,7 @@ import com.proyecto.entities.Tarea;
 
 public interface TareaService {
 
-	public List<Tarea> findAll();
+	public List<Tarea> findAll(int id_usuario);
 
 	public Tarea find(int id);
 

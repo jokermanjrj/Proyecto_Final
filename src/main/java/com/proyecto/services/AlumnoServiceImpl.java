@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.proyecto.entities.Alumno;
+import com.proyecto.entities.Clase;
 import com.proyecto.repositories.AlumnoRepository;
 
 @Transactional //necesario para crear datos
@@ -16,13 +17,25 @@ public class AlumnoServiceImpl implements AlumnoService{
 	
 	@Autowired
 	private AlumnoRepository alumnoRepository;
-
+	
 	public AlumnoServiceImpl(AlumnoRepository alumnoRepository) {
 		this.alumnoRepository = alumnoRepository;
 	}
 
 	public List<Alumno> findAll() {
 		return this.alumnoRepository.findAll();
+	}
+	
+	public List<Clase>findClases(){
+		return this.alumnoRepository.findClases();
+	}
+	
+	public List<Alumno>findFiltro(int idClase){
+		return this.alumnoRepository.findFiltro(idClase);
+	}
+	
+	public List<Alumno>FiltroClase(int id){
+		return this.alumnoRepository.FiltroClase(id);
 	}
 
 	public Alumno find(int id) {
