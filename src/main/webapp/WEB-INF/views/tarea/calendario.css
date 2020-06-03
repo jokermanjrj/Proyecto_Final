@@ -6,11 +6,11 @@ div.mes {
 }
 
 div.mes:nth-child(odd) {
-  display: inline-block;
+
   }
 
 div.mes:nth-child(even) {
-  
+   
 }
 
 div.mes th,
@@ -40,6 +40,8 @@ div.mes caption.titulo {
   color: #c00;
 }
 
+.tabla_mes {
+	width: 100%;
+}
 container {
-	display: flex;
 }

@@ -25,14 +25,18 @@
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 					</s:url>
-			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
+			  <li><s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a></li>
 			  <li><a href="#news">Alumnos</a></li>
+<<<<<<< refs/remotes/origin/master
 <<<<<<< refs/remotes/origin/master
 
 >>>>>>> 0.0.26
 =======
 			  <li><s:a href="%{url_add}"> Añadir Tarea</s:a></li>
 >>>>>>> 0.0.31
+=======
+			  <li><s:a href="%{url_add}"> Aï¿½adir Tarea</s:a></li>
+>>>>>>> 0.0.32
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
@@ -58,12 +62,12 @@ var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
 var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
 
 var contador = 0;
-estructurar(contador);
+estructurar();
 
 
 function sumar()
 { 
-	var myobj = document.getElementById("mes");
+	var myobj = document.getElementsByClassName("mes");
 	myobj.remove();
 	
 	document.getElementById('contador').innerHTML = contador += 1;   
@@ -79,17 +83,16 @@ function restar()
 }
 
 
-
 function estructurar(contador) {
 	
 		
   let container = document.createElement("DIV");
   container.className = "container";
  
-  for (m = contador; m <= contador; m++) {
+  for (m = 0; m <= 11; m++) {
     //Mes
     let mes = document.createElement("DIV");
-    mes.id = "mes";
+    mes.className = "mes";
     document.body.appendChild(mes);
     //Tabla
     let tabla_mes = document.createElement("TABLE");
@@ -123,14 +126,13 @@ function estructurar(contador) {
       }     
     }    
   }
-  numerar()
 }
 
 numerar();
 
 function numerar() {
   for (i = 1; i < 366; i++) {
-    let fecha = fechaPorDia(2017, i);
+    let fecha = fechaPorDia(2020, i);
     let mes = fecha.getMonth();
     let select_tabla = document.getElementsByClassName('tabla_mes')[mes];
     let dia = fecha.getDate()
