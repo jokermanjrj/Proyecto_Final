@@ -20,7 +20,7 @@
 		<div style="background-color:grey; margin:0px;">
 			<ul>
 <<<<<<< refs/remotes/origin/master
-			 <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
+			 <li><s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a></li>
 =======
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
@@ -32,7 +32,7 @@
 
 >>>>>>> 0.0.26
 =======
-			  <li><s:a href="%{url_add}"> Añadir Tarea</s:a></li>
+			  <li><s:a href="%{url_add}"> Aï¿½adir Tarea</s:a></li>
 >>>>>>> 0.0.31
 =======
 			  <li><s:a href="%{url_add}"> Aï¿½adir Tarea</s:a></li>
@@ -41,10 +41,6 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
-		<input type="button" id="boton" value="+1" onClick="sumar();">
-		<input type="button" id="boton" value="-1" onClick="restar();">
-		
-  <div id="contador">0</div>
 <!-- CALENDARIO -->	
 <!-- <div class=container_1>
 	<h1 style="text-align: center;">calendario</h1>
@@ -55,6 +51,10 @@
 		
 	</c:forEach>
 </div>-->
+  <c:forEach var="tarea" items="${tareas }">
+				<td class="column">${tarea.fecha }</td>
+			
+		</c:forEach>
 
 <script>
 var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -65,34 +65,13 @@ var contador = 0;
 estructurar();
 
 
-function sumar()
-{ 
-	var myobj = document.getElementsByClassName("mes");
-	myobj.remove();
-	
-	document.getElementById('contador').innerHTML = contador += 1;   
-	estructurar(contador);
-}
-
-function restar()
-{ 
-	var myobj = document.getElementById("mes");
-	myobj.remove();
-	document.getElementById('contador').innerHTML = contador -= 1;   
-	estructurar(contador);
-}
-
-
 function estructurar(contador) {
-	
-		
-  let container = document.createElement("DIV");
-  container.className = "container";
  
   for (m = 0; m <= 11; m++) {
     //Mes
     let mes = document.createElement("DIV");
     mes.className = "mes";
+    
     document.body.appendChild(mes);
     //Tabla
     let tabla_mes = document.createElement("TABLE");
@@ -110,6 +89,7 @@ function estructurar(contador) {
     cabecera.appendChild(fila);
     for (d = 0; d < 7; d++) {
       let dia = document.createElement("TH");
+      dia.className= "dias";
       dia.innerText = dia_text[d];
       fila.appendChild(dia);
     }
@@ -143,8 +123,8 @@ function numerar() {
   }
 }
 
-function fechaPorDia(año, dia) {
-  var date = new Date(año, 0);
+function fechaPorDia(aï¿½o, dia) {
+  var date = new Date(aï¿½o, 0);
   return new Date(date.setDate(dia));
 }
 </script>
