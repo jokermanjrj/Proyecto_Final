@@ -31,27 +31,32 @@
 	</div>
 	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" width="" height=""></s:a>
 	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
-	<table border="1">
-		<tr>
-			<th>Id</th>
-			<th>nombre</th>
-		</tr>
-		<c:forEach var="clase" items="${clases }">
+	<c:if test="${clases.size() == 0 }">
+		<h1>No existen ciclos formativos registrados</h1>
+	</c:if>
+	<c:if test="${clases.size() > 0 }">
+		<table border="1">
 			<tr>
-				<td>${clase.idClase }</td>
-				<td>${clase.nombre_clase }</td>
-				<td> 
-				<s:url var="url_edit" namespace="/clase" action="edit"> 
-						<s:param name="idClase">${clase.idClase }</s:param>
-					</s:url>
-					<s:a href="%{url_edit}" >Editar</s:a> | 
-					<s:url var="url_delete" namespace="/clase" action="delete"> 
-						<s:param name="idClase">${clase.idClase }</s:param>
-					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')">Borrar</s:a>
-				</td>
+				<th>Id</th>
+				<th>nombre</th>
 			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach var="clase" items="${clases }">
+				<tr>
+					<td>${clase.idClase }</td>
+					<td>${clase.nombre_clase }</td>
+					<td> 
+					<s:url var="url_edit" namespace="/clase" action="edit"> 
+							<s:param name="idClase">${clase.idClase }</s:param>
+						</s:url>
+						<s:a href="%{url_edit}" >Editar</s:a> | 
+						<s:url var="url_delete" namespace="/clase" action="delete"> 
+							<s:param name="idClase">${clase.idClase }</s:param>
+						</s:url>
+						<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')">Borrar</s:a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 </body>
 </html>

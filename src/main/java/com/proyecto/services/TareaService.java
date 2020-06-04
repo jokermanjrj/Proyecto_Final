@@ -15,4 +15,6 @@ public interface TareaService {
 	public void update(Tarea tarea);
 
 	public void delete(Tarea tarea);
+	
+	public Tarea imagen(int id);
 }

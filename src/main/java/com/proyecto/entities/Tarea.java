@@ -37,14 +37,14 @@ public class Tarea implements Serializable{
 	
 	@Lob
 	@Column
-	private File audio;
+	private byte[] audio;
 
 	public Tarea() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, File audio) {
+	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
 		super();
 		this.id = id;
 		this.id_usuario = id_usuario;
@@ -105,12 +105,12 @@ public class Tarea implements Serializable{
 
 
 
-	public File getAudio() {
+	public byte[] getAudio() {
 
 		return audio;
 	}
 
-	public void setAudio(File audio2) {
+	public void setAudio(byte[] audio2) {
 		this.audio = audio2;
 	}
 

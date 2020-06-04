@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import='java.*'%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -29,7 +28,7 @@
 			<s:url var="usuario_url" namespace="/tarea" action="index">
 				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 			</s:url>
-			 <li><s:a href="%{usuario_url}"> ver Tarea</s:a></li>
+			 <li><s:a href="%{usuario_url}"> ver Tareas</s:a></li>
 			  <!-- Accion para cerrar sesión que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
@@ -44,30 +43,33 @@
 			<th class="column">titulo</th>
 			<th class="column">Nota</th>
 			<th class="column">Fecha</th>
-			<th class="column">Audio</th>
+			<th class="column">Imagen</th>
 		</tr>
-		<c:forEach var="tarea" items="${tareas }">
+		<c:if test="${tareas.size() > 0 }">
+		<c:forEach begin="0" end="${tareas.size() -1}" var="cur">
 			<tr>
-				<td class="column">${tarea.id }</td>
-				<td class="column">${tarea.id_usuario }</td>
-				<td class="column">${tarea.titulo }</td>
-				<td class="column">${tarea.descripcion }</td>
-				<td class="column">${tarea.fecha }</td>
+				<td class="column">${tareas[cur].getId() }</td>
+				<td class="column">${tareas[cur].getId_usuario() }</td>
+				<td class="column">${tareas[cur].getTitulo() }</td>
+				<td class="column">${tareas[cur].getDescripcion() }</td>
+				<td class="column">${tareas[cur].getFecha() }</td>
 				
-				<td><img src="${tarea.audio }"></td>
+				<td><img width="100" height="100" src="${ imagenes[cur]}"></td>
 				<td> 
 					<s:url var="url_edit" namespace="/tarea" action="edit"> 
-							<s:param name="id">${tarea.id }</s:param>
+							<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
 					<s:a href="%{url_edit}" >Editar</s:a>
 					<s:url var="url_delete" namespace="/tarea" action="delete"> 
-						<s:param name="id">${tarea.id }</s:param>
+						<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
 					<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>
 				</td>
 			</tr>
 		</c:forEach>
+		</c:if>
 	</table>
+
 
 	
 

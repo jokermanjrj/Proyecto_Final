@@ -23,7 +23,7 @@
 	
 	<s:form method="post" namespace="/usuario" action="identificarse"  style="width: 100%;">
 		<s:textfield name="correo" placeholder="correo" style="align-text: center;"></s:textfield>
-		<s:textfield name="pasword" placeholder="contraseña" style=""></s:textfield>
+		<s:password name="pasword" placeholder="contraseña" style=""></s:password>
 	<div style="margin-left: 25%;">
 		<s:submit value="Identificarse" ></s:submit>
 	</div>

@@ -44,4 +44,9 @@ public class TareaServiceImpl implements TareaService{
 		this.tareaRepository.delete(tarea);
 		
 	}
+
+	public Tarea imagen(int id) {
+		// TODO Auto-generated method stub
+		return this.tareaRepository.imagen(id);
+	}
 }

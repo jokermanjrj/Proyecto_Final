@@ -47,4 +47,15 @@ public class TareaRepositoryImpl implements TareaRepository{
 		
 	}
 
+	public Tarea imagen(int id) {
+		// TODO Auto-generated method stub
+		try {
+			return (Tarea) entityManager.createQuery("from Tarea where id = :id").setParameter("id", id).getSingleResult();
+		}catch(Exception e) {
+			return null;
+		}
+		
+	}
+
+
 }
