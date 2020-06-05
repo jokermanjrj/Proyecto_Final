@@ -69,6 +69,10 @@ public class AppConfig extends WebSecurityConfigurerAdapter{
 		dataSource.setUrl("jdbc:mysql://localhost/agenda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
+		/*dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://217.199.187.199/cl56-agenda");
+        dataSource.setUsername("cl56-agenda");
+        dataSource.setPassword("Ymt6jtNq-");*/
 		return dataSource;
 	}
 
@@ -89,6 +93,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter{
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		return properties;
 	}
+	
 	
 	/*@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Añadir Alumno</title>
+<title>Aï¿½adir Alumno</title>
 <style>
 <jsp:include page="../tarea/form.css"/>
 </style>
@@ -30,11 +30,43 @@
 	<s:set var="idClase">${id}</s:set>
 	<s:form methof="post" namespace="/alumno" action="save" enctype="multipart/form-data" theme="simple">
 	
+=======
+	<h3>Aï¿½adir alumno  ${id}</h3>
+	<s:set var="idClase">${id}</s:set>
+	<s:form method="post" namespace="/alumno" action="save" enctype="multipart/form-data" style="width: 100%;">
+		
+>>>>>>> 0.0.26
 		<s:file label="Seleccione archivo" name="fileUpload"></s:file>
 		
 		<s:submit value="Save" align="left"></s:submit>
 		<s:hidden name="id" value="%{#idClase}"></s:hidden>
 	</s:form>
+<<<<<<< refs/remotes/origin/master
+=======
+	
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>nombre</th>
+		</tr>
+		<c:forEach var="clase" items="${clases }">
+			<tr>
+				<td>${clase.idClase }</td>
+				<td>${clase.nombre_clase }</td>
+				<td> 
+				<s:url var="url_edit" namespace="/clase" action="edit"> 
+						<s:param name="idClase">${clase.idClase }</s:param>
+					</s:url>
+					<s:a href="%{url_edit}" >Editar</s:a> | 
+					<s:url var="url_delete" namespace="/clase" action="delete"> 
+						<s:param name="idClase">${clase.idClase }</s:param>
+					</s:url>
+					<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+>>>>>>> 0.0.31
 
 </body>
 </html>

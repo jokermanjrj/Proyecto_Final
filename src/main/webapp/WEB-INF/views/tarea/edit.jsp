@@ -26,8 +26,14 @@
 		</div>
 	
 <div class="container">
+<<<<<<< refs/remotes/origin/master
 	<s:set var="usuario">${sessionScope.usuario.getId() }</s:set>
 	<s:form methof="post" namespace="/tarea" action="update" style="width: 100%;" theme="simple">
+=======
+	<s:set var="usuario">${sessionScope.id }</s:set>
+	<s:form methof="post" namespace="/tarea" action="update" style="width: 100%;" theme="simple">
+
+>>>>>>> 0.0.31
 	
 		<s:textfield name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
 		<s:textarea name="tarea.descripcion" placeholder="Titulo" class="campo"></s:textarea>

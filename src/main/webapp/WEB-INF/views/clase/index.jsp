@@ -11,7 +11,6 @@
 <title>Clases</title>
 <style>
 <jsp:include page="../tarea/form.css"/>
-<jsp:include page="../tarea/inicio.css"/>
 </style>
 </head>
 <body>
@@ -34,8 +33,8 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" alt="Añadir clases"width="" height=""></s:a>
-	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
+	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" width="" height=""></s:a>
+	<s:a namespace="/clase" action="alumnoClase">Aï¿½adir alumnos a ciclos formativos</s:a>
 	<c:if test="${clases.size() == 0 }">
 		<div class="noData">
 			<h1>No existen ciclos formativos registrados</h1>
@@ -43,7 +42,20 @@
 		</div>
 	</c:if>
 	<c:if test="${clases.size() > 0 }">
-		<table border="1" id="tabla">
+		<table border="1">
+=======
+	<h1>Lista de clases</h1>
+	<s:a namespace="/clase" action="add"> Aï¿½adir Tarea</s:a>
+	<s:a namespace="/clase" action="alumnoClase">Aï¿½adir alumnos a ciclos formativos</s:a>
+
+	
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>nombre</th>
+		</tr>
+		<c:forEach var="clase" items="${clases }">
+>>>>>>> 0.0.26
 			<tr>
 				<th class="column">Id</th>
 				<th class="column">nombre</th>
@@ -51,17 +63,17 @@
 			</tr>
 			<c:forEach var="clase" items="${clases }">
 				<tr>
-					<td class="column">${clase.idClase }</td>
-					<td class="column">${clase.nombre_clase }</td>
-					<td class="column"> 
+					<td>${clase.idClase }</td>
+					<td>${clase.nombre_clase }</td>
+					<td> 
 					<s:url var="url_edit" namespace="/clase" action="edit"> 
 							<s:param name="idClase">${clase.idClase }</s:param>
 						</s:url>
-						<s:a href="%{url_edit}" ><img class="icon" src="../assets/uploads/editar.png"/></s:a>
+						<s:a href="%{url_edit}" >Editar</s:a> | 
 						<s:url var="url_delete" namespace="/clase" action="delete"> 
 							<s:param name="idClase">${clase.idClase }</s:param>
 						</s:url>
-						<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icon" src="../assets/uploads/eliminar.png"/></s:a>
+						<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>
 					</td>
 				</tr>
 			</c:forEach>

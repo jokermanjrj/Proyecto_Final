@@ -29,10 +29,15 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<div>
-		<h1>Selecciona la clase de la que quieras ver los alumnos</h1>
-	</div>
-	<!--<s:a namespace="/alumno" action="add"> Añadir Alumno</s:a>-->
+	<!--<s:a namespace="/alumno" action="add"> Aï¿½adir Alumno</s:a>-->
+=======
+<h1>Tus alumnos</h1>
+=======
+>>>>>>> 0.0.31
+	<!--<s:a namespace="/alumno" action="add"> Aï¿½adir Alumno</s:a>
+	<!--<s:a namespace="/cursa" action="listar"> cursando</s:a>-->
+	
+>>>>>>> 0.0.26
 	<c:forEach var="clase" items="${clases }">
 		<ul>
 			<li>
@@ -44,6 +49,25 @@
 		</ul>
 	</c:forEach>
 	
+<<<<<<< refs/remotes/origin/master
+=======
+	
+
+	<div style="background-color:grey; margin:0px; ">
+			<ul style="padding: 20px";>
+			
+			<s:url var="url_add" namespace="/tarea" action="add"> 
+						<s:param name="id_usuario">${sessionScope.id }</s:param>
+			</s:url>
+			
+			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
+			  <li><a href="#news">Alumnos</a></li>
+			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
+			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
+			</ul>
+	</div>
+	<s:a namespace="/alumno" action="add"> Aï¿½adir Alumno</s:a>
+>>>>>>> 0.0.31
 	<table border="1">
 		<tr>
 			<th colspan="4">${clase.nombre_clase}</th>
@@ -58,11 +82,11 @@
 					<s:url var="url_edit" namespace="/alumno" action="edit"> 
 							<s:param name="id">${alumno.id }</s:param>
 					</s:url>
-					<s:a href="%{url_edit}" ><img class="icon" src="../assets/uploads/editar.png"/></s:a> 
+					<s:a href="%{url_edit}" >Editar</s:a> | 
 					<s:url var="url_delete" namespace="/alumno" action="delete"> 
 						<s:param name="id">${alumno.id }</s:param>
 					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icon" src="../assets/uploads/eliminar.png"/></s:a>
+					<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>
 				</td>
 			</tr>
 		</c:forEach>

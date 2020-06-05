@@ -1,22 +1,23 @@
 @charset "ISO-8859-1";
 div.mes {
   margin: 0 auto;
-  width: 100%;
   position: relative;
+
 }
 
 div.mes:nth-child(odd) {
-  float: left;
+
   }
 
 div.mes:nth-child(even) {
-  
+   
 }
 
 div.mes th,
 div.mes td,
 div.mes caption {
   font: norm1al 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
   padding: 6px 4px;
 }
 
@@ -31,11 +32,21 @@ div.mes td {
 }
 
 div.mes th {
-  color: #999;
+  color: #white;
+  
 }
 
 div.mes caption.titulo {
-  text-align: left;
+  text-align: center;
   font-size: 18px;
   color: #c00;
 }
+
+.tabla_mes {
+	width: 100%;
+}
+
+.dias {
+ background-color: #4CAF50;
+ color: white;
+	}

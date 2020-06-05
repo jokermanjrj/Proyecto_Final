@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Añadir clase</title>
+<title>Aï¿½adir clase</title>
 <style>
 <jsp:include page="../tarea/form.css"/>
 
@@ -40,6 +40,13 @@
 		
 		<s:submit value="Save" align="left"></s:submit>
 	</s:form>
+<<<<<<< refs/remotes/origin/master
 </div>
+=======
+
+
+</div>
+
+>>>>>>> 0.0.31
 </body>
 </html>

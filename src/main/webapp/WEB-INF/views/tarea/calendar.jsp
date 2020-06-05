@@ -20,14 +20,28 @@
 	<!-- TITULO -->
 		<div style="background-color:grey; margin:0px;">
 			<ul>
-			 <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
+<<<<<<< refs/remotes/origin/master
+			 <li><s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a></li>
+=======
+			<s:url var="url_add" namespace="/tarea" action="add"> 
+						<s:param name="id_usuario">${sessionScope.id }</s:param>
+					</s:url>
+			  <li><s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a></li>
+			  <li><a href="#news">Alumnos</a></li>
+<<<<<<< refs/remotes/origin/master
+<<<<<<< refs/remotes/origin/master
+
+>>>>>>> 0.0.26
+=======
+			  <li><s:a href="%{url_add}"> Aï¿½adir Tarea</s:a></li>
+>>>>>>> 0.0.31
+=======
+			  <li><s:a href="%{url_add}"> Aï¿½adir Tarea</s:a></li>
+>>>>>>> 0.0.32
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
-		
-		        <input type = 'button' value = 'Clicked 0 times' id = 'Button' data-clicks = 0 ></input>
-		
 <!-- CALENDARIO -->	
 <!-- <div class=container_1>
 	<h1 style="text-align: center;">calendario</h1>
@@ -38,19 +52,27 @@
 		
 	</c:forEach>
 </div>-->
+  <c:forEach var="tarea" items="${tareas }">
+				<td class="column">${tarea.fecha }</td>
+			
+		</c:forEach>
 
 <script>
 var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
 
+var contador = 0;
 estructurar();
 
-function estructurar() {
-  for (m = 0; m <= 0; m++) {
+
+function estructurar(contador) {
+ 
+  for (m = 0; m <= 11; m++) {
     //Mes
     let mes = document.createElement("DIV");
     mes.className = "mes";
+    
     document.body.appendChild(mes);
     //Tabla
     let tabla_mes = document.createElement("TABLE");
@@ -68,6 +90,7 @@ function estructurar() {
     cabecera.appendChild(fila);
     for (d = 0; d < 7; d++) {
       let dia = document.createElement("TH");
+      dia.className= "dias";
       dia.innerText = dia_text[d];
       fila.appendChild(dia);
     }
@@ -90,7 +113,7 @@ numerar();
 
 function numerar() {
   for (i = 1; i < 366; i++) {
-    let fecha = fechaPorDia(2017, i);
+    let fecha = fechaPorDia(2020, i);
     let mes = fecha.getMonth();
     let select_tabla = document.getElementsByClassName('tabla_mes')[mes];
     let dia = fecha.getDate()
@@ -101,8 +124,8 @@ function numerar() {
   }
 }
 
-function fechaPorDia(año, dia) {
-  var date = new Date(año, 0);
+function fechaPorDia(aï¿½o, dia) {
+  var date = new Date(aï¿½o, 0);
   return new Date(date.setDate(dia));
 }
 </script>
