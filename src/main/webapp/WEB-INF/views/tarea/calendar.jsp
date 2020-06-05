@@ -42,6 +42,7 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
+
 <!-- CALENDARIO -->	
 <!-- <div class=container_1>
 	<h1 style="text-align: center;">calendario</h1>
@@ -65,9 +66,7 @@ var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
 var contador = 0;
 estructurar();
 
-
-function estructurar(contador) {
- 
+function estructurar() {
   for (m = 0; m <= 11; m++) {
     //Mes
     let mes = document.createElement("DIV");
@@ -90,7 +89,7 @@ function estructurar(contador) {
     cabecera.appendChild(fila);
     for (d = 0; d < 7; d++) {
       let dia = document.createElement("TH");
-      dia.className= "dias";
+      dia.className="dia";
       dia.innerText = dia_text[d];
       fila.appendChild(dia);
     }
