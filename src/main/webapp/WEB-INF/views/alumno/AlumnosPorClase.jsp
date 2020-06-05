@@ -9,7 +9,7 @@
 <title>Alumnos </title>
 </head>
 <body>
-		
+		<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 		<table border="1">
 			<tr>
 				<th colspan="4">${clase.nombre_clase}</th>

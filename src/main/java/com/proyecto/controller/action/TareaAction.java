@@ -184,6 +184,32 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		return SUCCESS;
 	}
 	
+	@Action(value = "home", results = {
+			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp")
+		})
+		public String home() {
+			this.tareas = this.tareaService.findAll(id_usuario);
+			System.out.println(tareas.size());
+			for(Tarea a : tareas) {
+				System.out.println(a.getAudio());
+				if(a.getAudio() != null) {
+					BASE64Encoder base64Encoder = new BASE64Encoder();
+					StringBuilder imageString = new StringBuilder();
+					imageString.append("data:image/png;base64,");
+					imageString.append(base64Encoder.encode(a.getAudio()));
+					image = imageString.toString();
+					this.imagenes.add(image);
+					
+				}else {
+					image = null;
+					this.imagenes.add(image);
+				}
+				
+			}
+			System.out.println(imagenes.size());
+			return SUCCESS;
+		}
+	
 	//CREA UNA NUEVA TAREA
 	@Action(value = "add", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/add.jsp")

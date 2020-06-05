@@ -13,7 +13,7 @@
 
 </head>
 <body>
-
+	<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<!-- TITULO -->
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
@@ -26,7 +26,10 @@
 				</s:url>
 			
 			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
-			  <li><a>Inicio</a></li>
+			  <s:url var="usuario_url" namespace="/tarea" action="index">
+				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+			</s:url>
+	 		<li><s:a href="%{usuario_url}">Inicio</s:a></li>
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>

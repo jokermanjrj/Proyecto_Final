@@ -1,8 +1,7 @@
 @charset "ISO-8859-1";
 body {
 	width: 100%;
-  background-image: url("file:///D:/Projectos%20Git/Proyecto_Final/src/main/webapp/WEB-INF/views/usuario/prueba.jpg");
-  background-repeat: no-repeat;
+ 	 background-image: url("../assets/uploads/prueba.jpg");
 }
 ul {
   list-style-type: none;

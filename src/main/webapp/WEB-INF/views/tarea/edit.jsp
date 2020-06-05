@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-
+	<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<div style="background-color:grey; margin:0px; padding: 20px;">
 		<h1 style="text-align:center;">EDITAR TAREA</h1>
 			<ul>

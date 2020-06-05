@@ -15,6 +15,7 @@
 </style>
 </head>
 <body>
+<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
 			
@@ -25,7 +26,10 @@
 					<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 				</s:url>
 			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
-			  <li><a href="#news">Inicio</a></li>
+			  <s:url var="usuario_url" namespace="/tarea" action="index">
+				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+			</s:url>
+	 		<li><s:a href="%{usuario_url}">Inicio</s:a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
@@ -33,13 +37,17 @@
 	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" alt="Añadir clases"width="" height=""></s:a>
 	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
 	<c:if test="${clases.size() == 0 }">
-		<h1>No existen ciclos formativos registrados</h1>
+		<div class="noData">
+			<h1>No existen ciclos formativos registrados</h1>
+			<s:include value="/WEB-INF/views/resultado/noData.jsp"></s:include>
+		</div>
 	</c:if>
 	<c:if test="${clases.size() > 0 }">
 		<table border="1" id="tabla">
 			<tr>
 				<th class="column">Id</th>
 				<th class="column">nombre</th>
+				<th class="column">Editar | Eliminar</th>
 			</tr>
 			<c:forEach var="clase" items="${clases }">
 				<tr>

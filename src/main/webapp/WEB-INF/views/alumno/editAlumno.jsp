@@ -8,6 +8,7 @@
 <title>Editar Alumno</title>
 </head>
 <body>
+<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<s:form methof="post" namespace="/alumno" action="update">
 	
 		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno"></s:textfield>

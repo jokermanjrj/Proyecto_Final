@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-
+	<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 		<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
 			

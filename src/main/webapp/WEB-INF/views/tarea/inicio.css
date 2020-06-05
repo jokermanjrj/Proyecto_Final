@@ -28,10 +28,23 @@ li a:hover:not(.active) {
 .row {
 	display: flex;
 }
+.containerLogo{
+	text-align: center;
+	background: radial-gradient(circle, rgba(238,209,174,1) 0%, rgba(255,189,89,1) 100%);
+}
 
+.logo{
+	border: 3px outset white;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 8px;
+	width:150px;
+	height:150px;
+}
 
-
-
+table{
+	margin: 10px 0;
+}
 #tabla {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;

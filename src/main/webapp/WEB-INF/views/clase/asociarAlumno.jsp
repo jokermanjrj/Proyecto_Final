@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<c:forEach var="clase" items="${clases }">
 		<ul>
 			<li>

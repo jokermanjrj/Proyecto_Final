@@ -9,13 +9,14 @@
 <style>
 <jsp:include page="form.css"/>
 <jsp:include page="calendario.css"/>
+
 </style>
 <meta charset="ISO-8859-1" >
 <title>Calendar</title>
     <!--  <link href="./css/main.css" rel="stylesheet" type="text/css" />-->
 </head>
 <body style="margin:0px;">
-
+	<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<!-- TITULO -->
 		<div style="background-color:grey; margin:0px;">
 			<ul>
