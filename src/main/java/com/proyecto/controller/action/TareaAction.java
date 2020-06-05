@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -284,9 +285,38 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	@Action(value = "update", results = {
 			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
 			@Result(name=INPUT, location = "/WEB-INF/views/tarea/index.jsp")
-		})
-		public String update() {
+		},interceptorRefs = {
+				@InterceptorRef(
+						params = {
+							"allowedTypes", "image/png,image/gif,image/jpeg,image/jpg",
+							"maximumSize", "2097152"
+			            },
+			            value = "fileUpload"
+			        ),
+					@InterceptorRef("defaultStack")
+				})
+		public String update() throws IOException {
 		this.tareas = this.tareaService.findAll(id_usuario);
+		if(this.fileUploadFileName != null) {
+			System.out.println("File Name: " + this.fileUploadFileName);
+			System.out.println("File Size(bytes): " + this.fileUpload.getAbsolutePath());
+			System.out.println("File Type: "+ this.fileUploadContentType);
+			
+			BufferedImage image = ImageIO.read(new File(this.fileUpload.getAbsolutePath()));
+	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		       ImageIO.write(image, "jpg", bos );
+		       byte [] array = bos.toByteArray();
+			 /*BufferedImage image = ImageIO.read(new File(this.fileUpload.getAbsolutePath()));
+		        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			       ImageIO.write(image, "jpg", bos );
+			       byte [] array = bos.toByteArray();
+			      /* ByteArrayInputStream bis = new ByteArrayInputStream(data);
+			       BufferedImage bImage2 = ImageIO.read(bis);
+			       ImageIO.write(bImage2, "jpg", new File("C:\\Users\\luisf\\OneDrive\\Escritorio\\output.jpg") );
+			       System.out.println("image created");*/
+			       this.tarea.setAudio(array);
+			
+		}
 		this.tareaService.update(this.tarea);
 			return SUCCESS;
 		}

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +18,6 @@
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
 
-			
-<<<<<<< refs/remotes/origin/master
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 							<s:param name="id_usuario">${sessionScope.usuario.getId() }</s:param>
 			</s:url>
@@ -44,7 +41,8 @@
 	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;" theme="simple">
 		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
 		<s:textarea  name="tarea.descripcion" placeholder="Descripci�n" style="height:200px;" class="campo"></s:textarea>
-		<s:date  name="tarea.fecha"  format = "dd/MM/yyyy"></s:date>
+		<br>
+		<input type="date"  name="tarea.fecha" ></input>
 		<br>
 		<s:file label="Seleccione imagen" name="fileUpload" accept="image/*" class="campo"></s:file>
 		<br>

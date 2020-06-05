@@ -7,10 +7,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Alumnos </title>
+<style>
+<jsp:include page="../tarea/form.css"/>
+</style>
 </head>
 <body>
 		<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
-		<table border="1">
+		<c:if test="${alumnos.size() == 0 }">
+			<div class="noData">
+			<h1>No existen alumnos en este ciclo</h1>
+			<s:include value="/WEB-INF/views/resultado/noData.jsp"></s:include>
+		</div>
+		</c:if>
+		<c:if test="${alumnos.size() > 0 }">
+		<table border="1" id="tabla">
 			<tr>
 				<th colspan="4">${clase.nombre_clase}</th>
 			</tr>
@@ -34,5 +44,6 @@
 			</tr>
 		</c:forEach>
 		</table>
+		</c:if>
 </body>
 </html>

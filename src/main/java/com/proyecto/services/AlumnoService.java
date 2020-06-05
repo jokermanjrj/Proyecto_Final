@@ -20,10 +20,7 @@ public interface AlumnoService {
 	public List<Clase> findClases();
 
 	public List<Alumno> findFiltro(int idClase);
-<<<<<<< refs/remotes/origin/master
 
-	List<Alumno> FiltroClase(int id);
-=======
-	List <Alumno> FiltroClase(int id);
->>>>>>> 0.0.26
+	public List<Alumno> FiltroClase(int id);
+
 }

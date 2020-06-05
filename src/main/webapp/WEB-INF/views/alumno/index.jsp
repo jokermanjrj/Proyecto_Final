@@ -30,14 +30,9 @@
 			</ul>
 	</div>
 	<!--<s:a namespace="/alumno" action="add"> A�adir Alumno</s:a>-->
-=======
-<h1>Tus alumnos</h1>
-=======
->>>>>>> 0.0.31
-	<!--<s:a namespace="/alumno" action="add"> A�adir Alumno</s:a>
-	<!--<s:a namespace="/cursa" action="listar"> cursando</s:a>-->
-	
->>>>>>> 0.0.26
+
+<h1>Selecciona el ciclo de la cual quieres obtener los alumnos</h1>
+
 	<c:forEach var="clase" items="${clases }">
 		<ul>
 			<li>
@@ -48,48 +43,6 @@
 			</li>
 		</ul>
 	</c:forEach>
-	
-<<<<<<< refs/remotes/origin/master
-=======
-	
 
-	<div style="background-color:grey; margin:0px; ">
-			<ul style="padding: 20px";>
-			
-			<s:url var="url_add" namespace="/tarea" action="add"> 
-						<s:param name="id_usuario">${sessionScope.id }</s:param>
-			</s:url>
-			
-			  <li><s:a namespace="/tarea" action="calendar"> Calendario</s:a></li>
-			  <li><a href="#news">Alumnos</a></li>
-			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
-			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
-			</ul>
-	</div>
-	<s:a namespace="/alumno" action="add"> A�adir Alumno</s:a>
->>>>>>> 0.0.31
-	<table border="1">
-		<tr>
-			<th colspan="4">${clase.nombre_clase}</th>
-		</tr>
-		<c:forEach var="alumno" items="${alumnos }">
-			<tr>
-				<td>${alumno.id }</td>
-				<td>${alumno.nombre_alumno }</td>
-				<td>${alumno.apellido_alumno }</td>
-				
-				<td> 
-					<s:url var="url_edit" namespace="/alumno" action="edit"> 
-							<s:param name="id">${alumno.id }</s:param>
-					</s:url>
-					<s:a href="%{url_edit}" >Editar</s:a> | 
-					<s:url var="url_delete" namespace="/alumno" action="delete"> 
-						<s:param name="id">${alumno.id }</s:param>
-					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('�ESTAS SEGURO?')">Borrar</s:a>
-				</td>
-			</tr>
-		</c:forEach>
-	</table>
 </body>
 </html>

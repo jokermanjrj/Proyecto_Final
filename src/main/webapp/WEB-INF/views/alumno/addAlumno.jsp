@@ -30,19 +30,11 @@
 	<s:set var="idClase">${id}</s:set>
 	<s:form methof="post" namespace="/alumno" action="save" enctype="multipart/form-data" theme="simple">
 	
-=======
-	<h3>A�adir alumno  ${id}</h3>
-	<s:set var="idClase">${id}</s:set>
-	<s:form method="post" namespace="/alumno" action="save" enctype="multipart/form-data" style="width: 100%;">
-		
->>>>>>> 0.0.26
 		<s:file label="Seleccione archivo" name="fileUpload"></s:file>
 		
 		<s:submit value="Save" align="left"></s:submit>
 		<s:hidden name="id" value="%{#idClase}"></s:hidden>
 	</s:form>
-<<<<<<< refs/remotes/origin/master
-=======
 	
 	<table border="1">
 		<tr>
@@ -66,7 +58,6 @@
 			</tr>
 		</c:forEach>
 	</table>
->>>>>>> 0.0.31
 
 </body>
 </html>
