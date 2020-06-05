@@ -28,6 +28,9 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
+	<div>
+		<h1>Selecciona la clase de la que quieras ver los alumnos</h1>
+	</div>
 	<!--<s:a namespace="/alumno" action="add"> Añadir Alumno</s:a>-->
 	<c:forEach var="clase" items="${clases }">
 		<ul>
@@ -54,11 +57,11 @@
 					<s:url var="url_edit" namespace="/alumno" action="edit"> 
 							<s:param name="id">${alumno.id }</s:param>
 					</s:url>
-					<s:a href="%{url_edit}" >Editar</s:a> | 
+					<s:a href="%{url_edit}" ><img class="icon" src="../assets/uploads/editar.png"/></s:a> 
 					<s:url var="url_delete" namespace="/alumno" action="delete"> 
 						<s:param name="id">${alumno.id }</s:param>
 					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')">Borrar</s:a>
+					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icon" src="../assets/uploads/eliminar.png"/></s:a>
 				</td>
 			</tr>
 		</c:forEach>

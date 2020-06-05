@@ -11,6 +11,7 @@
 <title>Clases</title>
 <style>
 <jsp:include page="../tarea/form.css"/>
+<jsp:include page="../tarea/inicio.css"/>
 </style>
 </head>
 <body>
@@ -29,30 +30,30 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" width="" height=""></s:a>
+	<s:a namespace="/clase" action="add"><img src="../usuario/prueba.jpg" alt="Añadir clases"width="" height=""></s:a>
 	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
 	<c:if test="${clases.size() == 0 }">
 		<h1>No existen ciclos formativos registrados</h1>
 	</c:if>
 	<c:if test="${clases.size() > 0 }">
-		<table border="1">
+		<table border="1" id="tabla">
 			<tr>
-				<th>Id</th>
-				<th>nombre</th>
+				<th class="column">Id</th>
+				<th class="column">nombre</th>
 			</tr>
 			<c:forEach var="clase" items="${clases }">
 				<tr>
-					<td>${clase.idClase }</td>
-					<td>${clase.nombre_clase }</td>
-					<td> 
+					<td class="column">${clase.idClase }</td>
+					<td class="column">${clase.nombre_clase }</td>
+					<td class="column"> 
 					<s:url var="url_edit" namespace="/clase" action="edit"> 
 							<s:param name="idClase">${clase.idClase }</s:param>
 						</s:url>
-						<s:a href="%{url_edit}" >Editar</s:a> | 
+						<s:a href="%{url_edit}" ><img class="icon" src="../assets/uploads/editar.png"/></s:a>
 						<s:url var="url_delete" namespace="/clase" action="delete"> 
 							<s:param name="idClase">${clase.idClase }</s:param>
 						</s:url>
-						<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')">Borrar</s:a>
+						<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icon" src="../assets/uploads/eliminar.png"/></s:a>
 					</td>
 				</tr>
 			</c:forEach>

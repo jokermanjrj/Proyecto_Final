@@ -53,17 +53,21 @@
 				<td class="column">${tareas[cur].getTitulo() }</td>
 				<td class="column">${tareas[cur].getDescripcion() }</td>
 				<td class="column">${tareas[cur].getFecha() }</td>
-				
-				<td><img width="100" height="100" src="${ imagenes[cur]}"></td>
+				<c:if test="${imagenes[cur] != null }">
+					<td><img class="imagenes" src="${ imagenes[cur]}"/></td>
+				</c:if>
+				<c:if test="${imagenes[cur] == null }">
+					<td></td>
+				</c:if>
 				<td> 
 					<s:url var="url_edit" namespace="/tarea" action="edit"> 
 							<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
-					<s:a href="%{url_edit}" >Editar</s:a>
+					<s:a href="%{url_edit}" ><img class="icon" src="../assets/uploads/editar.png"/></s:a>
 					<s:url var="url_delete" namespace="/tarea" action="delete"> 
 						<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('ï¿½ESTAS SEGURO?')">Borrar</s:a>
+					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icon" src="../assets/uploads/eliminar.png"/></s:a>
 				</td>
 			</tr>
 		</c:forEach>

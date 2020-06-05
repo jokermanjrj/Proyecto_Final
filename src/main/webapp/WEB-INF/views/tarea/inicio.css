@@ -54,3 +54,17 @@ li a:hover:not(.active) {
   background-color: #4CAF50;
   color: white;
 }
+
+.imagenes{
+	border-radius: 8px;
+	width:150px;
+	height:150px;
+}
+
+.icon{
+	border: 1px solid #ddd;
+	 border-radius: 4px;
+	 padding: 5px;
+	  width: 35px;
+    height: 35px;
+}
