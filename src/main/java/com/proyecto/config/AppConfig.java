@@ -66,13 +66,13 @@ public class AppConfig extends WebSecurityConfigurerAdapter{
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost/agenda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+		/*dataSource.setUrl("jdbc:mysql://localhost/agenda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		/*dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://217.199.187.199/cl56-agenda");
-        dataSource.setUsername("cl56-agenda");
-        dataSource.setPassword("Ymt6jtNq-");*/
+		dataSource.setPassword("root");*/
+
+		dataSource.setUrl("jdbc:mysql://217.199.187.199/cl56-agenda?useSSL=false");
+		dataSource.setUsername("cl56-agenda");
+		dataSource.setPassword("Ymt6jtNq-");
 		return dataSource;
 	}
 

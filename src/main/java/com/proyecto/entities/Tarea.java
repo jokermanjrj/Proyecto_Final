@@ -38,13 +38,16 @@ public class Tarea implements Serializable{
 	@Lob
 	@Column
 	private byte[] audio;
+	
+	@Column
+	private String direccion;
 
 	public Tarea() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio) {
+	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio, String direccion) {
 		super();
 		this.id = id;
 		this.id_usuario = id_usuario;
@@ -52,6 +55,7 @@ public class Tarea implements Serializable{
 		this.descripcion = descripcion;
 		this.fecha = fecha;
 		this.audio = audio;
+		this.direccion = direccion;
 	}
 	//GETTERS Y SETTERS
 	
@@ -114,6 +118,13 @@ public class Tarea implements Serializable{
 		this.audio = audio2;
 	}
 
+	public String getDireccion() {
+		return direccion;
+	}
 
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	
 
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Añadir tarea</title>
 <style>
 <jsp:include page="../tarea/form.css"/>
 
@@ -37,10 +37,10 @@
 		
 <div class="container">
 		<s:set var="usuario">${sessionScope.usuario.getId()}</s:set>
-		<s:property value="#usuario"/>
 	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;" theme="simple">
 		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
-		<s:textarea  name="tarea.descripcion" placeholder="Descripciï¿½n" style="height:200px;" class="campo"></s:textarea>
+		<s:textarea  name="tarea.descripcion" placeholder="Descripción" style="height:200px;" class="campo"></s:textarea>
+		<s:textfield  name="tarea.direccion" placeholder="Dirección" class="campo"></s:textfield>
 		<br>
 		<input type="date"  name="tarea.fecha" ></input>
 		<br>

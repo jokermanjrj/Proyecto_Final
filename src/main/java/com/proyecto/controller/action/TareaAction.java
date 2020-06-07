@@ -54,6 +54,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	private String image;
 	private int id_usuario;
 	private int id;
+	private List <Integer> ids = new ArrayList<Integer>();
 	
 	private File fileUpload;
     private String fileUploadContentType;
@@ -108,6 +109,15 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+
+	public List<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Integer> ids) {
+		this.ids = ids;
 	}
 
 	public Tarea getTarea() {
@@ -222,7 +232,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	//GUARDA LA TAREA ANTES CREADA
 	@Action(value = "save", results = {
 			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
-			@Result(name = INPUT, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"})
+			@Result(name = INPUT, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
+			@Result(name = ERROR, location = "/WEB-INF/views/tarea/add.jsp")
 		},interceptorRefs = {
 				@InterceptorRef(
 						params = {
@@ -237,6 +248,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		public String save() throws Exception {
 		this.tareas = this.tareaService.findAll(id_usuario);
 		// informacion d
+		try {
 		if(this.fileUploadFileName != null) {
 			System.out.println("File Name: " + this.fileUploadFileName);
 			System.out.println("File Size(bytes): " + this.fileUpload.getAbsolutePath());
@@ -246,20 +258,17 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		       ImageIO.write(image, "jpg", bos );
 		       byte [] array = bos.toByteArray();
-			 /*BufferedImage image = ImageIO.read(new File(this.fileUpload.getAbsolutePath()));
-		        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-			       ImageIO.write(image, "jpg", bos );
-			       byte [] array = bos.toByteArray();
-			      /* ByteArrayInputStream bis = new ByteArrayInputStream(data);
-			       BufferedImage bImage2 = ImageIO.read(bis);
-			       ImageIO.write(bImage2, "jpg", new File("C:\\Users\\luisf\\OneDrive\\Escritorio\\output.jpg") );
-			       System.out.println("image created");*/
 			       this.tarea.setAudio(array);
 			
 		}
 				
 		this.tareaService.create(tarea);
 			return SUCCESS;
+			
+		}catch(Exception e) {
+			System.out.println("Archivo demasiado grande");
+			return ERROR;
+		}
 		}
 	
 	public void setServletRequest(HttpServletRequest servletRequest) {
@@ -273,6 +282,20 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		this.tareaService.delete(this.tareaService.find(id));
 			return SUCCESS;
 		}
+	
+	@Action(value = "Multidelete", results = {
+			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
+			@Result(name = INPUT, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
+		})
+		public String Multidelete() {
+		for( int idx : ids) {
+			System.out.println(idx);
+			this.tareaService.delete(this.tareaService.find(idx));
+		}
+		//this.tareaService.delete(this.tareaService.find(id));
+			return SUCCESS;
+		}
+	
 	//ESTABLECE LA TAREA DE LA CLASE EL VALOR DE LA TAREA QUE HA SIDO BUSCADA.
 	@Action(value = "edit", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/edit.jsp")
@@ -306,14 +329,6 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		       ImageIO.write(image, "jpg", bos );
 		       byte [] array = bos.toByteArray();
-			 /*BufferedImage image = ImageIO.read(new File(this.fileUpload.getAbsolutePath()));
-		        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-			       ImageIO.write(image, "jpg", bos );
-			       byte [] array = bos.toByteArray();
-			      /* ByteArrayInputStream bis = new ByteArrayInputStream(data);
-			       BufferedImage bImage2 = ImageIO.read(bis);
-			       ImageIO.write(bImage2, "jpg", new File("C:\\Users\\luisf\\OneDrive\\Escritorio\\output.jpg") );
-			       System.out.println("image created");*/
 			       this.tarea.setAudio(array);
 			
 		}

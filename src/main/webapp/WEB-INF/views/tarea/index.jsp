@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page import='java.*'%>
@@ -35,7 +37,7 @@
 			</ul>
 		</div>
 	
-
+<s:form namespace="/tarea" action="Multidelete" methof="post">
 	<table border="1" id="tabla">
 	<!--COMENTARIO DE FECHA -->
 		<tr>
@@ -45,10 +47,13 @@
 			<th class="column">Nota</th>
 			<th class="column">Fecha</th>
 			<th class="column">Imagen</th>
+			<th class="column">Dirección</th>
 		</tr>
 		<c:if test="${tareas.size() > 0 }">
+		
 		<c:forEach begin="0" end="${tareas.size() -1}" var="cur">
 			<tr>
+			
 				<td class="column">${tareas[cur].getId() }</td>
 				<td class="column">${tareas[cur].getId_usuario() }</td>
 				<td class="column">${tareas[cur].getTitulo() }</td>
@@ -60,6 +65,7 @@
 				<c:if test="${ imagenes[cur] ==null}">
 					<td></td>
 				</c:if>
+				<td class="column"><a href="https://www.google.com/search?q=${tareas[cur].getDireccion() }" target="popup">${tareas[cur].getDireccion() }</a></td>
 				<td> 
 					<s:url var="url_edit" namespace="/tarea" action="edit"> 
 							<s:param name="id">${tareas[cur].getId() }</s:param>
@@ -69,13 +75,18 @@
 						<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
 					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icono" src="../assets/uploads/eliminar.png"></s:a>
+				<input type="checkbox" name="ids" value="${tareas[cur].getId() }">
+       			 <label for="vehicle1"> Eliminar</label><br>
 				</td>
 			</tr>
 		</c:forEach>
+		
 		</c:if>
 	</table>
-
-
+	
+	<br>
+  				<input type="submit" value="Submit">
+</s:form>
 	
 
 </body>
