@@ -46,7 +46,7 @@
 		<br>
 		<s:file label="Seleccione imagen" name="fileUpload" accept="image/*" class="campo"></s:file>
 		<br>
-		<s:submit value="Save" class="campo"></s:submit>
+		<s:submit value="Guardar" class="campo"></s:submit>
 		<s:hidden name="tarea.id_usuario" value="%{#usuario}"></s:hidden>
 	</s:form>
 </div>

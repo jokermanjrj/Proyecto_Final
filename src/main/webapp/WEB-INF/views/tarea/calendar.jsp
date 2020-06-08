@@ -112,8 +112,8 @@ function numerar() {
   }
 }
 
-function fechaPorDia(aï¿½o, dia) {
-  var date = new Date(aï¿½o, 0);
+function fechaPorDia(año, dia) {
+  var date = new Date(año, 0);
   return new Date(date.setDate(dia));
 }
 </script>

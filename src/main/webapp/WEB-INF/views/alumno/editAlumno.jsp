@@ -14,7 +14,7 @@
 		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno"></s:textfield>
 		<s:textfield label="Apellido del alumno" name="alumno.apellido_alumno"></s:textfield>
 	
-		<s:submit value="Save" align="left"></s:submit>
+		<s:submit value="Guardar" align="left"></s:submit>
 		<s:hidden name="alumno.id"></s:hidden>
 		
 	</s:form>

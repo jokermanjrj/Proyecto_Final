@@ -75,7 +75,7 @@
 						<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
 					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icono" src="../assets/uploads/eliminar.png"></s:a>
-				<input type="checkbox" name="ids" value="${tareas[cur].getId() }">
+					<input type="checkbox" name="ids" value="${tareas[cur].getId() }">
        			 <label for="vehicle1"> Eliminar</label><br>
 				</td>
 			</tr>

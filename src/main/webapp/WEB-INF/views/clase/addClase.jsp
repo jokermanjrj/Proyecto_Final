@@ -38,7 +38,7 @@
 	
 		<s:file label="Seleccione archivo" name="fileUpload"></s:file>
 		
-		<s:submit value="Save" align="left"></s:submit>
+		<s:submit value="Guardar" align="left"></s:submit>
 	</s:form>
 
 </div>
