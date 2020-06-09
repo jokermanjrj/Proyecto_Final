@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -35,11 +36,14 @@ public class AlumnoAction extends ActionSupport {
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
+	
 	private List<Alumno> alumnos;
+	private List <Integer> ids = new ArrayList<Integer>();
+	private List<Clase> clases;
+	
 	private Alumno alumno;
 	private int id;
 	private String nombre;
-	private List<Clase> clases;
 	private Clase clase;
 
 	public String getFileUploadContentType() {
@@ -96,6 +100,14 @@ public class AlumnoAction extends ActionSupport {
 
 	public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
+	}
+	
+	public List<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Integer> ids) {
+		this.ids = ids;
 	}
 
 	public Alumno getAlumno() {
@@ -202,6 +214,20 @@ public class AlumnoAction extends ActionSupport {
 			this.alumnoService.delete(this.alumnoService.find(id));
 				return SUCCESS;
 			}
+		
+		@Action(value = "Multidelete", results = {
+				@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/clase",  "actionName",  "listar"}),
+				@Result(name = INPUT, type="redirectAction", params = { "namespace","/clase",  "actionName",  "listar"}),
+			})
+			public String Multidelete() {
+			for( int idx : ids) {
+				System.out.println(idx);
+				this.alumnoService.delete(this.alumnoService.find(idx));
+			}
+			//this.tareaService.delete(this.tareaService.find(id));
+				return SUCCESS;
+			}
+		
 		//ESTABLECE LA TAREA DE LA CLASE EL VALOR DE LA TAREA QUE HA SIDO BUSCADA.
 		@Action(value = "edit", results = {
 				@Result(name = SUCCESS, location = "/WEB-INF/views/alumno/editAlumno.jsp")

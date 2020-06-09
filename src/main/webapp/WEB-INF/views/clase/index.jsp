@@ -42,6 +42,7 @@
 		</div>
 	</c:if>
 	<c:if test="${clases.size() > 0 }">
+	<s:form namespace="/clase" action="Multidelete" methof="post">
 		<table border="1" id="tabla">
 			<tr>
 				<th class="column">Id</th>
@@ -61,10 +62,15 @@
 							<s:param name="idClase">${clase.idClase }</s:param>
 						</s:url>
 						<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icono" src="../assets/uploads/eliminar.png"></s:a>
+						<input type="checkbox" name="ids" value="${clase.idClase }">
+       			 <label> Eliminar</label><br>
 					</td>
 				</tr>
 			</c:forEach>
 		</table>
+		<br>
+  				<input type="submit" value=Eliminar>
+</s:form>
 	</c:if>
 </body>
 </html>

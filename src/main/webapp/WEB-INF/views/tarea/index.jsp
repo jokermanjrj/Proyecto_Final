@@ -76,7 +76,7 @@
 					</s:url>
 					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icono" src="../assets/uploads/eliminar.png"></s:a>
 					<input type="checkbox" name="ids" value="${tareas[cur].getId() }">
-       			 <label for="vehicle1"> Eliminar</label><br>
+       			 <label> Eliminar</label><br>
 				</td>
 			</tr>
 		</c:forEach>

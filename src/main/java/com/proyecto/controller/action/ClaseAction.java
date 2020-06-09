@@ -8,6 +8,7 @@ import com.proyecto.services.AlumnoService;
 import com.proyecto.services.ClaseService;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,6 +36,7 @@ public class ClaseAction extends ActionSupport{
 	
 	private List <Clase>clases;
 	private List<Alumno> alumnos;
+	private List <Integer> ids = new ArrayList<Integer>();
 
 	private Clase clase;
 	private int idClase;
@@ -93,6 +95,14 @@ public class ClaseAction extends ActionSupport{
 
 	public void setAlumno(String alumno) {
 		this.alumno = alumno;
+	}
+	
+	public List<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Integer> ids) {
+		this.ids = ids;
 	}
 
 	public Clase getClase() {
@@ -196,6 +206,20 @@ public class ClaseAction extends ActionSupport{
 			this.claseService.delete(this.claseService.find(idClase));
 				return SUCCESS;
 			}
+		
+		@Action(value = "Multidelete", results = {
+				@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/clase",  "actionName",  "listar"}),
+				@Result(name = INPUT, type="redirectAction", params = { "namespace","/clase",  "actionName",  "listar"}),
+			})
+			public String Multidelete() {
+			for( int idx : ids) {
+				System.out.println(idx);
+				this.claseService.delete(this.claseService.find(idx));
+			}
+			//this.tareaService.delete(this.tareaService.find(id));
+				return SUCCESS;
+			}
+		
 		//ESTABLECE LA TAREA DE LA CLASE EL VALOR DE LA TAREA QUE HA SIDO BUSCADA.
 		@Action(value = "edit", results = {
 				@Result(name = SUCCESS, location = "/WEB-INF/views/clase/editClase.jsp")

@@ -12,7 +12,11 @@
 </style>
 
 </head>
-<body style="background-image: url('./assets/uploads/prueba.jpg');">
+<body style="background: url(./assets/uploads/FondoOrganizaT2.png) no-repeat center center fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;">
 
 <div class="container">
 	<h1 style="text-align: center;">LOGIN</h1>
