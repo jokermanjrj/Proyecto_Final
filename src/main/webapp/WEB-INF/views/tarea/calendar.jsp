@@ -32,25 +32,18 @@
 			</ul>
 		</div>
 
-<!-- CALENDARIO -->	
-<!-- <div class=container_1>
-	<h1 style="text-align: center;">calendario</h1>
-
-	<c:forEach var="dias" items="${calendario.getMeses()}">
-		<p>${calendario.getMeses()}</p>
-		<p>${calendario.meses[1].getDias()}</p>
-		
-	</c:forEach>
-</div>-->
   <c:forEach var="tarea" items="${tareas }">
-				<td class="column">${tarea.fecha }</td>
-			
-		</c:forEach>
+				<p class="column" >${tarea.fecha }</p>
+</c:forEach>
 
 <script>
 var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 var dia_text = ["Dom", "Lun", "Mar", "Mie", "Juv", "Vie", "Sab"];
+var inputs, index;
+inputs = document.getElementsByClassName('column');
+
+
 
 var contador = 0;
 estructurar();
@@ -90,6 +83,7 @@ function estructurar() {
       cuerpo.appendChild(fila);
       for (d = 0; d < 7; d++) {
         let dia = document.createElement("TD");
+        dia.className="numero";
         dia.innerText = "";
         fila.appendChild(dia);
       }     
@@ -106,14 +100,34 @@ function numerar() {
     let select_tabla = document.getElementsByClassName('tabla_mes')[mes];
     let dia = fecha.getDate()
     let dia_semana = fecha.getDay();
+    
     if (dia == 1) {var sem = 0;}
     select_tabla.children[2].children[sem].children[dia_semana].innerText = dia;
+    let comprobacion = select_tabla.children[2].children[sem].children[dia_semana];
+
+    for (index = 0; index < inputs.length; ++index) {
+        let tarea = inputs[index].innerHTML;
+        let dia = fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDate();
+        console.log(tarea+" == "+dia);
+        console.log(comprobacion);
+ 		if(tarea == dia) {
+			console.log("true");
+			comprobacion.style.backgroundColor="red";
+ 	 		}
+ 		else {
+			console.log("false");
+ 	 		}
+    }
+    
+    
+ 
     if (dia_semana == 6) { sem = sem + 1; }
   }
 }
 
 function fechaPorDia(año, dia) {
   var date = new Date(año, 0);
+  
   return new Date(date.setDate(dia));
 }
 </script>
