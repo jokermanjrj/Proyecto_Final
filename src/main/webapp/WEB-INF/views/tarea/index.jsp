@@ -36,13 +36,12 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
-	
+
+<div class="scrollbar">	
 <s:form namespace="/tarea" action="Multidelete" methof="post">
 	<table border="1" id="tabla">
 	<!--COMENTARIO DE FECHA -->
 		<tr>
-			<th class="column">Id</th>
-			<th class="column">Id_usuario</th>
 			<th class="column">titulo</th>
 			<th class="column">Nota</th>
 			<th class="column">Fecha</th>
@@ -53,9 +52,7 @@
 		
 		<c:forEach begin="0" end="${tareas.size() -1}" var="cur">
 			<tr>
-			
-				<td class="column">${tareas[cur].getId() }</td>
-				<td class="column">${tareas[cur].getId_usuario() }</td>
+		
 				<td class="column">${tareas[cur].getTitulo() }</td>
 				<td class="column">${tareas[cur].getDescripcion() }</td>
 				<td class="column">${tareas[cur].getFecha() }</td>
@@ -87,7 +84,7 @@
 	<br>
   				<input type="submit" value="Submit">
 </s:form>
-	
+</div>
 
 </body>
 </html>

@@ -76,3 +76,8 @@ table{
   background-color: #4CAF50;
   color: white;
 }
+
+.scrollbar {
+	overflow-y: scroll;
+	max-height: 70%;
+}
