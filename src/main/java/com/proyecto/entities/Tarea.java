@@ -31,7 +31,10 @@ public class Tarea implements Serializable{
 	private String titulo;
 	@Column
 	private String descripcion;
-	
+
+	@Column
+	private String hora;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	
@@ -47,7 +50,7 @@ public class Tarea implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio, String direccion) {
+	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio, String direccion, String hora) {
 		super();
 		this.id = id;
 		this.id_usuario = id_usuario;
@@ -56,6 +59,7 @@ public class Tarea implements Serializable{
 		this.fecha = fecha;
 		this.audio = audio;
 		this.direccion = direccion;
+		this.hora = hora;
 	}
 	//GETTERS Y SETTERS
 	
@@ -108,6 +112,14 @@ public class Tarea implements Serializable{
 	}
 
 
+
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 
 	public byte[] getAudio() {
 
