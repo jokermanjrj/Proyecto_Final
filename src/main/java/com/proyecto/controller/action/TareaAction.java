@@ -174,7 +174,6 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	})
 	public String index() {
 		this.tareas = this.tareaService.findAll(id_usuario);
-		System.out.println(tareas.size());
 		for(Tarea a : tareas) {
 			System.out.println(a.getAudio());
 			if(a.getAudio() != null) {
@@ -191,7 +190,6 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 			}
 			
 		}
-		System.out.println(imagenes.size());
 		return SUCCESS;
 	}
 	

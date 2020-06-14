@@ -3,6 +3,7 @@ package com.proyecto.controller.action;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,9 @@ import com.proyecto.entities.Alumno;
 import com.proyecto.entities.Clase;
 import com.proyecto.services.AlumnoService;
 import com.proyecto.services.ClaseService;
+import com.proyecto.services.ReportService;
+
+import net.sf.jasperreports.engine.JRException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,6 +36,8 @@ public class AlumnoAction extends ActionSupport {
 	private AlumnoService alumnoService;
 	@Autowired
 	private ClaseService claseService;
+	@Autowired
+	private ReportService reportService;
 
 	private File fileUpload;
 	private String fileUploadContentType;
@@ -144,7 +150,7 @@ public class AlumnoAction extends ActionSupport {
 		this.alumnos = this.alumnoService.FiltroClase(id);
 		//this.cursas = this.cursaService.findAll(id);
 
-		List <Alumno> a = this.alumnoService.FiltroClase(id);
+		List <Alumno> a = this.alumnos;
 	       
 	       for (Alumno a2 : a) {
 	    	   System.out.println(a2.getNombre_alumno() + "\n" + a2.getApellido_alumno());
@@ -243,6 +249,17 @@ public class AlumnoAction extends ActionSupport {
 			})
 			public String update() {
 			this.alumnoService.update(this.alumno);
+				return SUCCESS;
+			}
+		
+		@Action(value = "reportAlumno", results = {
+				@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/alumno",  "actionName",  "listar"}),
+				@Result(name=INPUT, location = "/WEB-INF/views/alumno/index.jsp")
+			})
+			public String reportAlumno() throws JRException, FileNotFoundException {
+				this.alumnos = this.alumnoService.FiltroClase(id);
+				this.clase = this.claseService.find(id);
+				this.reportService.exportReport(this.alumnos, this.clase.getNombre_clase());
 				return SUCCESS;
 			}
 	

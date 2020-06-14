@@ -33,6 +33,7 @@
 
 <h1>Selecciona el ciclo de la cual quieres obtener los alumnos</h1>
 
+
 	<c:forEach var="clase" items="${clases }">
 		<ul>
 			<li>
@@ -40,6 +41,12 @@
 					<s:param name="id">${clase.idClase} </s:param>
 				</s:url>
 				<s:a href="%{url_clase}">${clase.nombre_clase }</s:a>
+			</li>
+			<li>
+				<s:url var="url_Report" namespace="/alumno" action="reportAlumno">
+					<s:param name="id">${clase.idClase}</s:param>
+				</s:url>
+				<s:a href="%{url_Report}">Reporte</s:a>
 			</li>
 		</ul>
 	</c:forEach>
