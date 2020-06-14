@@ -49,3 +49,12 @@ div.mes caption.titulo {
 .tabla_mes {
 	width: 100%;
 }
+
+#container {
+	overflow-y: scroll;
+	min-height: 50%;
+	max-height: 400px;
+	max-height: 50%px;
+	
+}
+

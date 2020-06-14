@@ -33,9 +33,13 @@
 		</div>
 
   <c:forEach var="tarea" items="${tareas }">
-				<p class="column" >${tarea.fecha }</p>
-</c:forEach>
+				<p class="column" style="display: none;">${tarea.fecha }</p>
+				</c:forEach>
 
+ 
+<div id="container">
+
+</div>
 <script>
 var mes_text = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
@@ -48,13 +52,13 @@ inputs = document.getElementsByClassName('column');
 var contador = 0;
 estructurar();
 
-function estructurar() {
+function estructurar() {	
   for (m = 0; m <= 11; m++) {
     //Mes
     let mes = document.createElement("DIV");
     mes.className = "mes";
-    
-    document.body.appendChild(mes);
+    document.getElementById('container').appendChild(mes);
+    //document.body.appendChild(mes);
     //Tabla
     let tabla_mes = document.createElement("TABLE");
     tabla_mes.className = "tabla_mes";
@@ -131,6 +135,7 @@ function fechaPorDia(año, dia) {
   return new Date(date.setDate(dia));
 }
 </script>
+
 
 </body>
 </html>
