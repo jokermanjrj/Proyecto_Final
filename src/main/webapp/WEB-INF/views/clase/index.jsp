@@ -29,12 +29,14 @@
 				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 			</s:url>
 	 		<li><s:a href="%{usuario_url}">Inicio</s:a></li>
+	 		<li><s:a namespace="/clase" action="add" class="button">Añadir ciclo formativo</s:a></li>
+	 		<li><s:a namespace="/clase" action="alumnoClase" class="button">Añadir alumnos a ciclos formativos</s:a></li>
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
-	<s:a namespace="/clase" action="add"><img alt="Añadir ciclos formativos"src="../usuario/prueba.jpg" width="" height=""></s:a>
-	<s:a namespace="/clase" action="alumnoClase">Añadir alumnos a ciclos formativos</s:a>
+	
+
 	<c:if test="${clases.size() == 0 }">
 		<div class="noData">
 			<h1>No existen ciclos formativos registrados</h1>
