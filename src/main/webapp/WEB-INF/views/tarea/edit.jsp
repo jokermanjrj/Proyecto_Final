@@ -33,7 +33,7 @@
 		<s:textfield name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
 		<s:textarea name="tarea.descripcion" placeholder="Titulo" class="campo"></s:textarea>
 		<br>
-		<input type="date"  name="tarea.fecha" ></input>
+		<input type="date"  name="tarea.fecha" required></input>
 		<br>
 		<br>
 		<s:file label="Seleccione imagen" name="fileUpload" accept="image/*" class="campo"></s:file>

@@ -42,7 +42,7 @@
 		<s:textarea  name="tarea.descripcion" placeholder="Descripción" style="height:200px;" class="campo"></s:textarea>
 		<s:textfield  name="tarea.direccion" placeholder="Dirección" class="campo"></s:textfield>
 		<br>
-		<input type="date"  name="tarea.fecha" ></input>
+		<input type="date"  name="tarea.fecha" required></input>
 		<br>
 		<s:file label="Seleccione imagen" name="fileUpload" accept="image/*" class="campo"></s:file>
 		<br>

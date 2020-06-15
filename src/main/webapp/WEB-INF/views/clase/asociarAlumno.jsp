@@ -21,7 +21,7 @@
 		</ul>
 	</c:forEach>
 	
-	<s:form method="post" namespace="/clase" action="guardarRelacion">
+	<!--<s:form method="post" namespace="/clase" action="guardarRelacion">
 	<c:forEach var="clase" items="${clases }">
 		<input type="checkbox" id="clase" name="nombre" value="${clase.nombre_clase }">
   		<label for="clase"> ${clase.nombre_clase }</label><br>
@@ -32,7 +32,7 @@
   		<label for="clase"> ${alumno.nombre_alumno } ${alumno.apellido_alumno }</label><br>
   	</c:forEach>
   	<input type="submit" value="save">
-	</s:form>
+	</s:form>-->
 	
 	
 </body>

@@ -46,7 +46,7 @@
 				<s:url var="url_Report" namespace="/alumno" action="reportAlumno">
 					<s:param name="id">${clase.idClase}</s:param>
 				</s:url>
-				<s:a href="%{url_Report}">Reporte</s:a>
+				<s:a href="%{url_Report}"><img class="icono" src="../assets/uploads/print.png"></s:a>
 			</li>
 		</ul>
 	</c:forEach>
