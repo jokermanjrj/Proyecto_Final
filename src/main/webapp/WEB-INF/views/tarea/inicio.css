@@ -1,5 +1,11 @@
 @charset "ISO-8859-1";
-
+.fondoTarea{
+	 background-image: url("../assets/uploads/fondoTareas.jpg");
+	  height: 100%; 
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+}
 
 ul {
   list-style-type: none;

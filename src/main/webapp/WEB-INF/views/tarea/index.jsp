@@ -33,7 +33,7 @@
 			 <li><s:a href="%{usuario_url}"> ver Tareas</s:a></li>
 			  <!-- Accion para cerrar sesión que llama a la acciï¿½n exit de user y de vuelve el login-->
 
-			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
+			  <li style="float:right"><s:a namespace="/usario" action="logout">Cerrar Sesion</s:a></li>
 			</ul>
 		</div>
 
@@ -43,6 +43,7 @@
 <s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 </s:url>
 <s:a class ="reporte" href="%{url_Report}"><img class="icono" src="../assets/uploads/print.png"></s:a>
+
 				
 <s:form namespace="/tarea" action="Multidelete" methof="post">
 	<table border="1" id="tabla">
@@ -65,10 +66,10 @@
 				<td class="column">${tareas[cur].getFecha() }</td>
 							<td class="column">${tareas[cur].getHora() }</td>
 				<c:if test="${ imagenes[cur] !=null}">
-					<td><img class="imagen" src="${ imagenes[cur]}"></td>
+					<td class="column"><img class="imagen" src="${ imagenes[cur]}"></td>
 				</c:if >
 				<c:if test="${ imagenes[cur] ==null}">
-					<td></td>
+					<td class="column"></td>
 				</c:if>
 				<td class="column"><a href="https://www.google.com/search?q=${tareas[cur].getDireccion() }" target="popup">${tareas[cur].getDireccion() }</a></td>
 				<td> 
@@ -92,6 +93,7 @@
 	<br>
   				<input type="submit" value="Submit">
 </s:form>
+
 </div>
 
 </body>

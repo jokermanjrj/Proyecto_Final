@@ -104,6 +104,15 @@ public class UsuarioAction extends ActionSupport {
 		}
 
 	}
+	
+	@Action(value = "logout", results = {
+			@Result(name = SUCCESS, type = "redirectAction", params = { "namespace", "/usuario", "actionName", "index" })
+		})
+		public String logout() {
+			Map<String, Object> session = ActionContext.getContext().getSession();
+			session.remove("usuario");
+			return SUCCESS;
+		}
 
 	@Action(value = "register", results = { @Result(name = SUCCESS, location = "/WEB-INF/views/usuario/registrar.jsp"),
 			@Result(name = ERROR, location = "/WEB-INF/views/usuario/registrar.jsp") })
