@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import com.proyecto.entities.Alumno;
+import com.proyecto.entities.Tarea;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -41,6 +42,24 @@ public class ReportService {
 		JasperPrint jp = JasperFillManager.fillReport(jr, map, dataSource);
 
 		JFrame frame = new JFrame(nombre);
+		JRViewer viewer = new JRViewer(jp);
+		frame.add(viewer);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setSize(new Dimension(900, 700));
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setVisible(true);
+	}
+	
+public void ReportTarea(List<Tarea> tarea) throws JRException, FileNotFoundException {
+		
+		File file = ResourceUtils.getFile("classpath:reporteTareas.jrxml");
+		JasperDesign jd = JRXmlLoader.load(file);
+		JasperReport jr = JasperCompileManager.compileReport(jd);
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(tarea);
+		JasperPrint jp = JasperFillManager.fillReport(jr, null, dataSource);
+
+		JFrame frame = new JFrame("Resumen de tareas");
 		JRViewer viewer = new JRViewer(jp);
 		frame.add(viewer);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

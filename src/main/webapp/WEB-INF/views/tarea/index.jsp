@@ -38,6 +38,12 @@
 		</div>
 
 <div class="scrollbar">	
+
+<s:url var="url_Report" namespace="/tarea" action="reportTarea">
+<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+</s:url>
+<s:a href="%{url_Report}">Reporte</s:a>
+				
 <s:form namespace="/tarea" action="Multidelete" methof="post">
 	<table border="1" id="tabla">
 	<!--COMENTARIO DE FECHA -->

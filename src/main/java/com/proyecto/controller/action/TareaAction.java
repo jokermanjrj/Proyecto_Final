@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -25,8 +26,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.proyecto.entities.Calendario;
 import com.proyecto.entities.Tarea;
 import com.proyecto.entities.Usuario;
+import com.proyecto.services.ReportService;
 import com.proyecto.services.TareaService;
 
+import net.sf.jasperreports.engine.JRException;
 import sun.misc.BASE64Encoder;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -46,6 +49,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 
 	@Autowired
 	private TareaService tareaService;
+	@Autowired
+	private ReportService reportService;
 
 	private List<Tarea> tareas;
 	private Tarea tarea;
@@ -335,6 +340,15 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		}
 	
 	
+	@Action(value = "reportTarea", results = {
+			@Result(name = SUCCESS, type="redirectAction", params = { "namespace","/tarea",  "actionName",  "index"}),
+			@Result(name=INPUT, location = "/WEB-INF/views/tarea/index.jsp")
+		})
+		public String reportTarea() throws JRException, FileNotFoundException {
+			this.tareas = this.tareaService.findAll(id_usuario);
+			this.reportService.ReportTarea(this.tareas);
+			return SUCCESS;
+		}
 	
 	
 

@@ -93,7 +93,7 @@ public class Tarea implements Serializable{
 	}
 
 	public String getFecha() {
-		String pattern = "yyyy-M-d";
+		String pattern = "d-M-yyy";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
 		String date = simpleDateFormat.format(fecha);
