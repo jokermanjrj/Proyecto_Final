@@ -33,11 +33,10 @@
 			</ul>
 	</div>
 	
-	<s:form methof="post" namespace="/clase" action="update" theme="simple">
+	<s:form methof="post" namespace="/clase" action="update">
 	
-		<s:textfield placeholder="nombre de la clase" name="clase.nombre_clase" class="campo" style="max-width: 500px;"></s:textfield>
-		<br>
-		<br>
+		<s:textfield label="nombre de la clase" name="clase.nombre_clase"></s:textfield>
+
 	
 		<s:submit value="Save" align="left"></s:submit>
 		<s:hidden name="clase.idClase"></s:hidden>

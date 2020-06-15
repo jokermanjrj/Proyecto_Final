@@ -105,9 +105,9 @@ public class UsuarioAction extends ActionSupport {
 
 	}
 	
-	@Action(value = "logout", results = {
-			@Result(name = SUCCESS, type = "redirectAction", params = { "namespace", "/usuario", "actionName", "index" })
-		})
+	@Action(value = "logout", results = {  @Result(name = SUCCESS, type = "redirectAction", params = { "namespace",
+			"/usuario", "actionName", "index" }),@Result(name = ERROR, location = "/WEB-INF/views/usuario/index.jsp")
+			})
 		public String logout() {
 			Map<String, Object> session = ActionContext.getContext().getSession();
 			session.remove("usuario");
@@ -133,8 +133,15 @@ public class UsuarioAction extends ActionSupport {
 			})
 	public String save() throws Exception {
 		try {
-			this.usuarioService.create(usuario);
-			return SUCCESS;
+			 
+			if (this.usuario.getPasword().length()<=0) {
+				this.errorMessage = "Contraseña invalida";
+				return ERROR;
+			}else {
+				this.usuarioService.create(usuario);
+				return SUCCESS;
+			}
+			
 		} catch (Exception e) {
 			this.errorMessage = "Usuario existente";
 

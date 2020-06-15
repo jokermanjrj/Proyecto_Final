@@ -11,7 +11,6 @@
 </head>
 <body class="fondo">
 
-<jsp:forward page="usuario/index.html"></jsp:forward>
-	
+	<jsp:forward page="usuario/index.html"></jsp:forward>
 </body>
 </html>
