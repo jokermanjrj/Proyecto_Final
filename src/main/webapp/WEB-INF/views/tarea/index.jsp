@@ -51,10 +51,8 @@
 			<th class="column">titulo</th>
 			<th class="column">Nota</th>
 			<th class="column">Fecha</th>
-			<th class="column">Hora</th>
 			<th class="column">Imagen</th>
 			<th class="column">Dirección</th>
-			
 		</tr>
 		<c:if test="${tareas.size() > 0 }">
 		
@@ -64,7 +62,6 @@
 				<td class="column">${tareas[cur].getTitulo() }</td>
 				<td class="column">${tareas[cur].getDescripcion() }</td>
 				<td class="column">${tareas[cur].getFecha() }</td>
-				<td class="column">${tareas[cur].getHora() }</td>
 				<c:if test="${ imagenes[cur] !=null}">
 					<td><img class="imagen" src="${ imagenes[cur]}"></td>
 				</c:if >

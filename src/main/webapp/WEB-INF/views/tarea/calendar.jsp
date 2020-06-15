@@ -111,29 +111,16 @@ function numerar() {
 
     for (index = 0; index < inputs.length; ++index) {
         let tarea = inputs[index].innerHTML;
-        let dia = fecha.getDate()+"-"+fecha.getMonth()+"-"+fecha.getFullYear();
-        //console.log(tarea+" == "+dia);
-       //console.log(comprobacion);
-
-        
-        var meses = new Array ("1","2","3","4","5","6","7","8","9","10","11","12");
-        var f=new Date();
-        var hoy = f.getDate() + "-" + meses[f.getMonth()-1] + "-" + f.getFullYear();
-		console.log(dia == hoy);
-		console.log(dia+" == "+hoy);
-		if(dia == hoy) {
-			comprobacion.style.backgroundColor="blue";
-			console.log("hoy es ese dia");
-			}
-		else {
+        let dia = fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDate();
+        console.log(tarea+" == "+dia);
+        console.log(comprobacion);
  		if(tarea == dia) {
-			//console.log("true");
+			console.log("true");
 			comprobacion.style.backgroundColor="red";
  	 		}
  		else {
-			//console.log("false");
+			console.log("false");
  	 		}
-		}
     }
     
     

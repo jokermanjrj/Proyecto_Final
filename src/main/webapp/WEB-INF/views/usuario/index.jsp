@@ -12,7 +12,7 @@
 </style>
 
 </head>
-<body style="background: url(./assets/uploads/FondoOrganizaT2.png) no-repeat center center fixed;
+<body class="fondo" style="background: url(./assets/uploads/FondoOrganizaT2.png) no-repeat center center fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

@@ -41,7 +41,6 @@
 		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>
 		<s:textarea  name="tarea.descripcion" placeholder="Descripción" style="height:200px;" class="campo"></s:textarea>
 		<s:textfield  name="tarea.direccion" placeholder="Dirección" class="campo"></s:textfield>
-		<s:textfield  name="tarea.hora" placeholder="Hora" class="campo"></s:textfield>
 		<br>
 		<input type="date"  name="tarea.fecha" ></input>
 		<br>

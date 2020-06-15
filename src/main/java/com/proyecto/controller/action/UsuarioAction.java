@@ -103,7 +103,7 @@ public class UsuarioAction extends ActionSupport{
 				session.put("usuario", this.usuario);
 				return SUCCESS;
 			}else {
-				this.errorMessage = "Invalid Account";
+				this.errorMessage = "Usuario no encontrado";
 				
 				return ERROR;
 			}
@@ -111,11 +111,19 @@ public class UsuarioAction extends ActionSupport{
 		}
 	
 	@Action(value = "register", results = {
-			@Result(name = SUCCESS, location = "/WEB-INF/views/usuario/registrar.jsp")
+			@Result(name = SUCCESS, location = "/WEB-INF/views/usuario/registrar.jsp"),
+			@Result(name = ERROR, location = "/WEB-INF/views/usuario/registrar.jsp")
 		})
 		public String register() {
+		try {
 			this.usuario = new Usuario ();
 			return SUCCESS;
+		}catch(Exception e) {
+			this.errorMessage = "Usuario existente";
+			
+			return ERROR;
+		}
+			
 		}
 	
 	@Action(value = "save", results = {
