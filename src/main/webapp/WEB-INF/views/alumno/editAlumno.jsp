@@ -12,9 +12,7 @@
 </head>
 <body>
 <s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
-<h1>Rellene los campos correctamente</h1>
 <s:set var="idClase">${clase.idClase}</s:set>
-	<s:form methof="post" namespace="/alumno" action="update">
 <div style="background-color:grey; margin:0px;">
 			<ul>
 			<s:url var="url_add" namespace="/tarea" action="add"> 
@@ -30,7 +28,7 @@
 
 	<s:form methof="post" namespace="/alumno" action="update" theme="simple">
 	
-		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno" class="campo" width="250px"></s:textfield>
+		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno" class="campo"></s:textfield>
 		<s:textfield label="Apellido del alumno" name="alumno.apellido_alumno" class="campo"></s:textfield>
 	<br>
 		<br>
