@@ -60,6 +60,13 @@ input[type=submit]:hover {
 .campo {
 	margin-top: 10px;
 }
+
 .noData{
-text-align: center;}
+text-align: center;
+}
+
+.button {
+	text-decoration: none;
+}
+
 
