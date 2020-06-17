@@ -91,7 +91,7 @@
 	</table>
 	
 	<br>
-  				<input type="submit" value="Submit">
+  				<input type="submit" value="Eliminar">
 </s:form>
 
 </div>

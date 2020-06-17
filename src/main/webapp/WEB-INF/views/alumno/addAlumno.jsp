@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Aï¿½adir Alumno</title>
+<title>Añadir Alumno</title>
 <style>
 <jsp:include page="../tarea/form.css"/>
 </style>

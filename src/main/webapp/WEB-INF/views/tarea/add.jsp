@@ -36,6 +36,7 @@
 	</div>
 		
 <div class="container">
+<p style="color: red; text-align: center;">${errorMessage }</p>
 		<s:set var="usuario">${sessionScope.usuario.getId()}</s:set>
 	<s:form method="post" namespace="/tarea" action="save" enctype="multipart/form-data" style="width: 100%;" theme="simple">
 		<s:textfield  name="tarea.titulo" placeholder="Titulo" class="campo"></s:textfield>

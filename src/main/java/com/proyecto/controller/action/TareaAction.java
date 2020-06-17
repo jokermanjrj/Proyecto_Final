@@ -52,6 +52,7 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 	@Autowired
 	private ReportService reportService;
 
+	private String errorMessage = "";
 	private List<Tarea> tareas;
 	private Tarea tarea;
 	private List<String> imagenes = new ArrayList<String>();
@@ -68,6 +69,13 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
     private HttpServletRequest servletRequest;
 	
 	
+    public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
     public String getFileUploadContentType() {
         return fileUploadContentType;
     }
@@ -270,6 +278,8 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 			
 		}catch(Exception e) {
 			System.out.println("Archivo demasiado grande");
+			this.errorMessage = "Archivo demasiado grande";
+
 			return ERROR;
 		}
 		}

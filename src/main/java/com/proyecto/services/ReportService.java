@@ -38,9 +38,11 @@ public class ReportService {
 
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 map.put("nombreClase", nombre);
+		
 		 System.out.println(map.get("nombreClase"));
+		 System.out.println(map.size());
 		JasperPrint jp = JasperFillManager.fillReport(jr, map, dataSource);
-
+		map.clear();
 		JFrame frame = new JFrame(nombre);
 		JRViewer viewer = new JRViewer(jp);
 		frame.add(viewer);
@@ -49,6 +51,7 @@ public class ReportService {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
+       
 	}
 	
 public void ReportTarea(List<Tarea> tarea) throws JRException, FileNotFoundException {

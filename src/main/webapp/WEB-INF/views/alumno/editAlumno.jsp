@@ -9,6 +9,8 @@
 </head>
 <body>
 <s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
+<h1>Rellene los campos correctamente</h1>
+<s:set var="idClase">${clase.idClase}</s:set>
 	<s:form methof="post" namespace="/alumno" action="update">
 	
 		<s:textfield label="Nombre del alumno" name="alumno.nombre_alumno"></s:textfield>
@@ -16,6 +18,8 @@
 	
 		<s:submit value="Guardar" align="left"></s:submit>
 		<s:hidden name="alumno.id"></s:hidden>
+		<s:hidden name="idClase" value="%{#idClase}"></s:hidden>
+		
 		
 	</s:form>
 </body>

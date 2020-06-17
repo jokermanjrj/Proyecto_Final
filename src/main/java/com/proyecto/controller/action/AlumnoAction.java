@@ -51,6 +51,17 @@ public class AlumnoAction extends ActionSupport {
 	private int id;
 	private String nombre;
 	private Clase clase;
+	private int idClase;
+	
+	
+
+	public int getIdClase() {
+		return idClase;
+	}
+
+	public void setIdClase(int idClase) {
+		this.idClase = idClase;
+	}
 
 	public String getFileUploadContentType() {
 		return fileUploadContentType;
@@ -146,9 +157,8 @@ public class AlumnoAction extends ActionSupport {
 	@Action(value = "listarClases", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/alumno/AlumnosPorClase.jsp") })
 	public String listarClases() {
-		this.clases = this.claseService.findAll();
+		this.clase = this.claseService.find(id);
 		this.alumnos = this.alumnoService.FiltroClase(id);
-		//this.cursas = this.cursaService.findAll(id);
 
 		List <Alumno> a = this.alumnos;
 	       
@@ -239,6 +249,7 @@ public class AlumnoAction extends ActionSupport {
 				@Result(name = SUCCESS, location = "/WEB-INF/views/alumno/editAlumno.jsp")
 			})
 			public String edit() {
+			this.clase= this.claseService.find(idClase);
 				this.alumno = this.alumnoService.find(id);
 				return SUCCESS;
 			}
@@ -248,6 +259,8 @@ public class AlumnoAction extends ActionSupport {
 				@Result(name=INPUT, location = "/WEB-INF/views/alumno/index.jsp")
 			})
 			public String update() {
+			this.clase=this.claseService.find(idClase);
+			this.alumno.addClases(clase);
 			this.alumnoService.update(this.alumno);
 				return SUCCESS;
 			}

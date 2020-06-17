@@ -20,10 +20,14 @@
 		</div>
 		</c:if>
 		<c:if test="${alumnos.size() > 0 }">
+		<h1>Almunos de ${clase.nombre_clase }</h1>
 		<s:form namespace="/alumno" action="Multidelete" methof="post">
 		<table border="1" id="tabla">
 			<tr>
-				<th colspan="4">${clase.nombre_clase}</th>
+				<th ></th>
+				<th >Nombre</th>
+				<th>Apelldios</th>
+				<th >Opciones</th>
 			</tr>
 			
 			<c:forEach var="alumno" items="${alumnos }">
@@ -35,6 +39,7 @@
 				<td> 
 					<s:url var="url_edit" namespace="/alumno" action="edit"> 
 							<s:param name="id">${alumno.id }</s:param>
+							<s:param name="idClase">${clase.idClase }</s:param>
 					</s:url>
 					<s:a href="%{url_edit}" ><img class="icono" src="../assets/uploads/editar.png"></s:a>
 					<s:url var="url_delete" namespace="/alumno" action="delete"> 
