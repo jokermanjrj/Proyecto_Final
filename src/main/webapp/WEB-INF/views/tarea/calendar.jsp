@@ -107,34 +107,35 @@ function numerar() {
     if (dia == 1) {var sem = 0;}
     select_tabla.children[2].children[sem].children[dia_semana].innerText = dia;
     let comprobacion = select_tabla.children[2].children[sem].children[dia_semana];
+    let date = fecha.getDate()+"-"+fecha.getMonth()+"-"+fecha.getFullYear();
+    //console.log(tarea+" == "+dia);
+   //console.log(comprobacion);
+    var meses = new Array ("1","2","3","4","5","6","7","8","9","10","11","12");
+    var f=new Date();
+    var hoy = f.getDate() + "-" + meses[f.getMonth()-1] + "-" + f.getFullYear();
+    if(date == hoy) {
+		comprobacion.style.backgroundColor="#69D2E7";
+		comprobacion.style.border="solid black 5px";
+		
+		console.log("hoy es ese dia");
+		}
 
     for (index = 0; index < inputs.length; ++index) {
         let tarea = inputs[index].innerHTML;
-        let dia = fecha.getDate()+"-"+fecha.getMonth()+"-"+fecha.getFullYear();
-        //console.log(tarea+" == "+dia);
-       //console.log(comprobacion);
+        var m = fecha.getMonth()+1;
+        dias = fecha.getDate()+"-"+m+"-"+fecha.getFullYear();
+        console.log(tarea+" == "+dias);
+       console.log(comprobacion);
 
-        
-        var meses = new Array ("1","2","3","4","5","6","7","8","9","10","11","12");
-        var f=new Date();
-        var hoy = f.getDate() + "-" + meses[f.getMonth()-1] + "-" + f.getFullYear();
-		console.log(dia == hoy);
-		console.log(dia+" == "+hoy);
-		if(dia == hoy) {
-			comprobacion.style.backgroundColor="#69D2E7";
-			comprobacion.style.border="solid black 5px";
-			
-			console.log("hoy es ese dia");
-			}
-		else {
- 		if(tarea == dia) {
+		
+ 		if(tarea == dias) {
 			//console.log("true");
 			comprobacion.style.backgroundColor="#fbbb5b";
  	 		}
  		else {
 			//console.log("false");
  	 		}
-		}
+		
     }
     
     
