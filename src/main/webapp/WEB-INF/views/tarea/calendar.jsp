@@ -25,7 +25,6 @@
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
 					</s:url>
 			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
-			  <li><a href="#news">Alumnos</a></li>
 
 			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
@@ -122,13 +121,15 @@ function numerar() {
 		console.log(dia == hoy);
 		console.log(dia+" == "+hoy);
 		if(dia == hoy) {
-			comprobacion.style.backgroundColor="blue";
+			comprobacion.style.backgroundColor="#69D2E7";
+			comprobacion.style.border="solid black 5px";
+			
 			console.log("hoy es ese dia");
 			}
 		else {
  		if(tarea == dia) {
 			//console.log("true");
-			comprobacion.style.backgroundColor="red";
+			comprobacion.style.backgroundColor="#fbbb5b";
  	 		}
  		else {
 			//console.log("false");
