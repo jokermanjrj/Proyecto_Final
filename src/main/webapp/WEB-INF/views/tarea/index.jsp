@@ -9,6 +9,7 @@
 <title>Notas</title>
 <style>
 <jsp:include page="inicio.css"/>
+<jsp:include page="form.css"/>
 </style>
 </head>
 <body>
@@ -97,10 +98,11 @@
 </s:form>
 
 </div>
+	
+</div>
+
 	<div style=" margin:0px;" class="footer">
 			<p>Fernando Taco, Ruben Martínez Guerrero</p>
 		</div>
-	
-</div>
 </body>
 </html>
