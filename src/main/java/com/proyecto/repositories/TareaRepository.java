@@ -17,4 +17,6 @@ public interface TareaRepository {
 	public void delete(Tarea tarea);
 	
 	public Tarea imagen(int id);
+	
+	public List<Tarea> findPrioritarios(int id_usuario);
 }

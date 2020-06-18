@@ -57,5 +57,15 @@ public class TareaRepositoryImpl implements TareaRepository{
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Tarea> findPrioritarios(int id_usuario) {
+		// TODO Auto-generated method stub
+		try {
+			return entityManager.createQuery("from Tarea where id_usuario = :id_usuario and prioridad=1 order by fecha").setParameter("id_usuario", id_usuario).getResultList();
+		}catch(Exception e) {
+			return null;
+		}
+	}
+
 
 }

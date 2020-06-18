@@ -206,6 +206,31 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 		return SUCCESS;
 	}
 	
+	//listado de tareas importantes.
+	@Action(value = "tareasPrio", results = {
+			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp")
+		})
+		public String tareasPrio() {
+			this.tareas = this.tareaService.findPrioritarios(id_usuario);
+			for(Tarea a : tareas) {
+				System.out.println(a.getAudio());
+				if(a.getAudio() != null) {
+					BASE64Encoder base64Encoder = new BASE64Encoder();
+					StringBuilder imageString = new StringBuilder();
+					imageString.append("data:image/png;base64,");
+					imageString.append(base64Encoder.encode(a.getAudio()));
+					image = imageString.toString();
+					this.imagenes.add(image);
+					
+				}else {
+					image = null;
+					this.imagenes.add(image);
+				}
+				
+			}
+			return SUCCESS;
+		}
+	
 	@Action(value = "home", results = {
 			@Result(name = SUCCESS, location = "/WEB-INF/views/tarea/index.jsp")
 		})
@@ -257,7 +282,6 @@ public class TareaAction extends ActionSupport implements ServletRequestAware {
 				})
 	
 		public String save() throws Exception {
-		this.tareas = this.tareaService.findAll(id_usuario);
 		// informacion d
 		try {
 		if(this.fileUploadFileName != null) {

@@ -49,4 +49,9 @@ public class TareaServiceImpl implements TareaService{
 		// TODO Auto-generated method stub
 		return this.tareaRepository.imagen(id);
 	}
+
+	public List<Tarea> findPrioritarios(int id_usuario) {
+		// TODO Auto-generated method stub
+		return this.tareaRepository.findPrioritarios(id_usuario);
+	}
 }

@@ -31,7 +31,11 @@
 				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 			</s:url>
 			 <li><s:a href="%{usuario_url}"> ver Tareas</s:a></li>
-			  <li><s:a href="%{usuario_url}"> ver Tareas Prioritarias</s:a></li>
+			 
+			 <s:url var="tareaPrio_url" namespace="/tarea" action="tareasPrio">
+				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+			</s:url>
+			  <li><s:a href="%{tareaPrio_url}"> ver Tareas Prioritarias</s:a></li>
 			  <!-- Accion para cerrar sesi�n que llama a la acci�n exit de user y de vuelve el login-->
   
   			

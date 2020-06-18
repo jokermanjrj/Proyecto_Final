@@ -44,13 +44,16 @@ public class Tarea implements Serializable{
 	
 	@Column
 	private String direccion;
-
+	
+	@Column(columnDefinition="tinyint(1) default 0")
+	private boolean prioridad;
+	
 	public Tarea() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio, String direccion, String hora) {
+	public Tarea(int id, int id_usuario, String titulo, String descripcion, Date fecha, byte[] audio, String direccion, String hora, boolean prioridad) {
 		super();
 		this.id = id;
 		this.id_usuario = id_usuario;
@@ -60,6 +63,7 @@ public class Tarea implements Serializable{
 		this.audio = audio;
 		this.direccion = direccion;
 		this.hora = hora;
+		this.prioridad = prioridad;
 	}
 	//GETTERS Y SETTERS
 	
@@ -138,6 +142,16 @@ public class Tarea implements Serializable{
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
+	public boolean isPrioridad() {
+		return prioridad;
+	}
+
+	public void setPrioridad(boolean prioridad) {
+		this.prioridad = prioridad;
+	}
+	
+	
 	
 
 }
