@@ -32,8 +32,10 @@
 			</s:url>
 			 <li><s:a href="%{usuario_url}"> ver Tareas</s:a></li>
 			  <!-- Accion para cerrar sesión que llama a la acciï¿½n exit de user y de vuelve el login-->
-
+  
+  			
 			  <li style="float:right"><s:a namespace="/usario" action="logout">Cerrar Sesion</s:a></li>
+			  	<li style="float:right"><s:a class ="reporte" href="%{url_Report}" style="padding: 0px;"><img class="icono" src="../assets/uploads/print.png" ></s:a></li>
 			</ul>
 		</div>
 
@@ -42,7 +44,7 @@
 <s:url var="url_Report" namespace="/tarea" action="reportTarea">
 <s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 </s:url>
-<s:a class ="reporte" href="%{url_Report}"><img class="icono" src="../assets/uploads/print.png"></s:a>
+
 
 				
 <s:form namespace="/tarea" action="Multidelete" methof="post">
@@ -77,10 +79,6 @@
 							<s:param name="id">${tareas[cur].getId() }</s:param>
 					</s:url>
 					<s:a href="%{url_edit}" ><img class="icono" src="../assets/uploads/editar.png"></s:a>
-					<s:url var="url_delete" namespace="/tarea" action="delete"> 
-						<s:param name="id">${tareas[cur].getId() }</s:param>
-					</s:url>
-					<s:a href="%{url_delete}" onclick="return confirm('¿ESTAS SEGURO?')"><img class="icono" src="../assets/uploads/eliminar.png"></s:a>
 					<input type="checkbox" name="ids" value="${tareas[cur].getId() }">
        			 <label> Eliminar</label><br>
 				</td>
