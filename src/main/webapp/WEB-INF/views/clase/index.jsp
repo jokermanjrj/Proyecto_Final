@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+<div class="contenedor">
 <s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<div style="background-color:grey; margin:0px; ">
 			<ul style="padding: 20px;">
@@ -74,5 +75,7 @@
   				<input type="submit" value=Eliminar>
 </s:form>
 	</c:if>
+
+</div>
 </body>
 </html>

@@ -43,6 +43,8 @@
 		
 	</s:form>
 </div>
-
+<div style=" margin:0px;" class="footer">
+			<p>Fernando Taco, Ruben Martínez Guerrero</p>
+		</div>
 </body>
 </html>

@@ -31,10 +31,8 @@ public class Tarea implements Serializable{
 	private String titulo;
 	@Column
 	private String descripcion;
-	
 	@Column
 	private String hora;
-	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	

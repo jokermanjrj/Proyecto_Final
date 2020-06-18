@@ -1,4 +1,7 @@
 @charset "ISO-8859-1";
+.container {
+	height: 100%;
+}
 .fondoTarea{
 	 background-image: url("../assets/uploads/fondoTareas.jpg");
 	  height: 100%; 
@@ -85,5 +88,11 @@ table{
 
 .scrollbar {
 	overflow-y: scroll;
-	max-height: 70%;
+	min-height: 70%;
+}
+
+.footer {
+	color: white;
+	background-color: #333;
+	padding: 10px;
 }

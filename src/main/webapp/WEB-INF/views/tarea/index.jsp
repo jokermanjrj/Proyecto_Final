@@ -12,9 +12,11 @@
 </style>
 </head>
 <body>
+<div class="container">
 	<s:include value="/WEB-INF/views/Inicio/home.jsp"></s:include>
 	<!-- TITULO -->
-		<div style="background-color:grey; margin:0px;">
+
+		<div style=" margin:0px;">
 			<ul style="padding: 20px;">
 			<s:url var="url_add" namespace="/tarea" action="add"> 
 						<s:param name="id_usuario">${sessionScope.id }</s:param>
@@ -48,10 +50,6 @@
 		</div>
 
 <div class="scrollbar">	
-
-
-
-
 				
 <s:form namespace="/tarea" action="Multidelete" methof="post">
 	<table border="1" id="tabla">
@@ -99,6 +97,10 @@
 </s:form>
 
 </div>
-
+	<div style=" margin:0px;" class="footer">
+			<p>Fernando Taco, Ruben Martínez Guerrero</p>
+		</div>
+	
+</div>
 </body>
 </html>
