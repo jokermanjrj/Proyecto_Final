@@ -23,7 +23,7 @@
 					<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 				</s:url>
 			  <li><s:a href="%{usuario_url}"> Calendario</s:a></li>
-			  <li><s:a namespace="/tarea" action="add"> Añadir Tarea</s:a></li>
+			  <li><s:a namespace="/tarea" action="add"> Aï¿½adir Tarea</s:a></li>
 			  <li><s:a namespace="/clase" action="listar">Clases</s:a></li>
 			 <li><s:a namespace="/alumno" action="listar">Alumnos</s:a></li>
 			 <s:set var="usuario">${sessionScope.usuario.getId() }</s:set>
@@ -31,19 +31,20 @@
 				<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
 			</s:url>
 			 <li><s:a href="%{usuario_url}"> ver Tareas</s:a></li>
-			  <!-- Accion para cerrar sesión que llama a la acciï¿½n exit de user y de vuelve el login-->
+			  <!-- Accion para cerrar sesiï¿½n que llama a la acciï¿½n exit de user y de vuelve el login-->
   
   			
 			  <li style="float:right"><s:a namespace="/usario" action="logout">Cerrar Sesion</s:a></li>
+			  <s:url var="url_Report" namespace="/tarea" action="reportTarea">
+<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
+</s:url>
 			  	<li style="float:right"><s:a class ="reporte" href="%{url_Report}" style="padding: 0px;"><img class="icono" src="../assets/uploads/print.png" ></s:a></li>
 			</ul>
 		</div>
 
 <div class="scrollbar">	
 
-<s:url var="url_Report" namespace="/tarea" action="reportTarea">
-<s:param name="id_usuario" >${sessionScope.usuario.getId() }</s:param>
-</s:url>
+
 
 
 				
@@ -56,7 +57,7 @@
 			<th class="column">Fecha</th>
 				<th class="column">Hora</th>
 			<th class="column">Imagen</th>
-			<th class="column">Dirección</th>
+			<th class="column">Direcciï¿½n</th>
 		</tr>
 		<c:if test="${tareas.size() > 0 }">
 		

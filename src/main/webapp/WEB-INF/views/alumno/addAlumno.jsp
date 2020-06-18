@@ -27,6 +27,7 @@
 			  <li style="float:right"><s:a namespace="/user" action="exit">Cerrar Sesion</s:a></li>
 			</ul>
 	</div>
+<div class=container>	
 	<s:set var="idClase">${id}</s:set>
 	<s:form methof="post" namespace="/alumno" action="save" enctype="multipart/form-data" theme="simple">
 	
@@ -35,7 +36,7 @@
 		<s:submit value="Guardar" align="left"></s:submit>
 		<s:hidden name="id" value="%{#idClase}"></s:hidden>
 	</s:form>
-	
+</div>	
 
 </body>
 </html>
